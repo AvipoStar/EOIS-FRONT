@@ -1,0 +1,9 @@
+.MyInput
+{
+  font-size: 20px;
+  border-radius: 5px;
+  border: solid 1px #2B2B2B;
+  color: var(--color-main-black);
+  background-color: var(--color-main-grey-light);
+  height: 35px;
+}

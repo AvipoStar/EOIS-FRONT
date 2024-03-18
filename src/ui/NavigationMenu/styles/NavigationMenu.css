@@ -1,0 +1,56 @@
+.NavigationMenu {
+  background-color: var(--color-main-grey);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--color-main-grey-light);
+  font-size: 24px;
+  height: 100%;
+  width: 20%;
+  transition: width 0.5s; /* Добавлено свойство transition */
+}
+
+.close {
+  width: 40px;
+}
+
+.NavigationMenu__item {
+  cursor: pointer;
+  background-color: transparent;
+  /* min-width: 220px; */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+  border-radius: 15px;
+  padding: 5px;
+
+}
+
+.selected {
+  background-color: var(--color-main-grey-light);
+  color: var(--color-main-grey-dark);
+}
+
+.exit{
+  min-width: 220px;
+  color: var(--color-main-red);
+  cursor: pointer;
+  background-color: transparent;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+  border-radius: 15px;
+  padding: 5px;
+}
+.exit:hover{
+  color: var(--color-main-red-hover);
+  
+}

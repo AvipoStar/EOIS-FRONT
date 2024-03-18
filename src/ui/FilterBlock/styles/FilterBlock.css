@@ -1,0 +1,29 @@
+.FilterBlock {
+  width: 100%;
+  display: flex;
+  background-color: var(--color-main-grey);
+  border-radius: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px;
+  max-width: 1300px;
+}
+
+.Closed {
+  align-items: center;
+  flex-direction: row;
+  padding: 5px 0px;
+}
+
+.Opened {
+  flex-direction: row;
+}
+
+.FilterInnerBlock {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  color: var(--color-main-grey);
+}

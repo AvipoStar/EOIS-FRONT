@@ -1,0 +1,21 @@
+.Header{
+  color: var(--color-text);
+  background-color: var(--color-main-grey-dark);
+  flex-direction: row;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  width: 80%;
+  position: absolute;
+  top: 0;
+  padding-left: 19%;
+}
+
+@media (max-width: 1000px) {
+  .Header {
+    padding-left: 1%;
+  }
+}

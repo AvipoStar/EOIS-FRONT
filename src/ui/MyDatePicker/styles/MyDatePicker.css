@@ -1,0 +1,9 @@
+.MyDatePicker{
+  font-size: 20px;
+  width: 98%;
+  padding: 5px;
+  border-radius: 5px;
+  color: var(--color-main-black);
+  background-color: var(--color-main-grey-light);
+  box-shadow: none;
+}

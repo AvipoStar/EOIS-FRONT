@@ -1,0 +1,25 @@
+.InfoBlock {
+  background-color: var(--color-main-grey);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.InfoBlock__title {
+  width: 100%;
+  text-align: left;
+  font-size: 28px;
+}
+
+.InfoBlock__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}

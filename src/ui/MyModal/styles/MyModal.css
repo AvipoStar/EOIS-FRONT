@@ -1,0 +1,58 @@
+.MyModal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.MyModal__Background {
+  background-color: black;
+  opacity: 80%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  gap: 10px;
+}
+
+.MyModal__Background__Children {
+  z-index: 6;
+  background-color: var(--color-main-grey-light);
+  border-radius: 10px;
+  padding: 30px;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.MyModal__Title {
+  font-size: 24px;
+  color: var(--color-main-grey-dark);
+}
+.MyModal__HideButton__Background {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 50%;
+  right: calc(40vw + 35px); 
+  z-index: 100;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: var(--color-main-grey-light);
+  border-radius: 50%;
+  box-shadow: 0px 0px 9px 0px var(--color-main-grey-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.MyModal__HideButton {
+  color: var(--color-main-grey-dark);
+}

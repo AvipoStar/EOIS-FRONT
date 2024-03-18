@@ -1,0 +1,16 @@
+.MyTableList {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+.MyTableItem {
+  background-color: var(--color-main-grey-light);
+  color: var(--color-main-grey-dark);
+  border-radius: 10px;
+  font-size: 24px;
+  padding: 10px;
+  margin-bottom: 5px;
+  text-align: left;
+  cursor: pointer;
+}

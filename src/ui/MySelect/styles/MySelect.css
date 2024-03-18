@@ -1,0 +1,6 @@
+.SelectItem{
+  font-size: 20px;
+  border-color: var(--color-main-grey-light);
+  color: var(--color-main-grey);
+  text-align: left;
+}

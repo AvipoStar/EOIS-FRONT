@@ -1,0 +1,19 @@
+.Auth{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  gap: 150px;
+}
+
+.ButtonsBlock{
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 10px
+}
+
+.AltButton{
+  cursor: pointer;
+}
