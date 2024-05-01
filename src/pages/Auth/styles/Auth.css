@@ -1,4 +1,4 @@
-.Auth{
+.Auth {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -7,13 +7,13 @@
   gap: 150px;
 }
 
-.ButtonsBlock{
-display: flex;
-flex-direction: column;
-justify-content: center;
-gap: 10px
+.ButtonsBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }
 
-.AltButton{
+.AltButton {
   cursor: pointer;
 }

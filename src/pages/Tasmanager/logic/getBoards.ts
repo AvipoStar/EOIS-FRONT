@@ -1,6 +1,6 @@
-import { axiosInstance } from '../../../Common/axios/axiosInstance'
+import { axiosInstance } from "../../../Common/axios/axiosInstance";
 
 export const getBoards = async (firmId: number) => {
-  const response = await axiosInstance.post("taskmanager/getBoards", {firmId: firmId});
+  const response = await axiosInstance.get(`taskmanager/getBoards/${firmId}`);
   return response.data;
 };

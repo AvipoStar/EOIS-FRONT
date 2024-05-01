@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { uploadFile } from "../logic/uploadFile";
+import { baseURL } from "../../../Common/axios/axiosInstance";
+import '../styles/FileUploader.css';
+import { FilePreviewElem } from "./FilePreviewElem";
 
 interface IFileUploader {
+  filePath: string;
   onFileUploaded: (filePath: string) => void;
 }
 
-export const FileUploader = (params: IFileUploader) => {
+export const FileUploader: React.FC<IFileUploader> = (params) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,14 +23,15 @@ export const FileUploader = (params: IFileUploader) => {
     if (selectedFile) fetchFilePath(selectedFile);
   }, [selectedFile]);
 
-  const fetchFilePath = async (file: any) => {
-    const filePath = await uploadFile(selectedFile);
+  const fetchFilePath = async (file: File) => {
+    const filePath = await uploadFile(file);
     if (filePath) params.onFileUploaded(filePath);
   };
 
   return (
-    <div>
-      <input type="file" onChange={handleFileChange} />
-    </div>
+    <>
+      <input type="file" onChange={handleFileChange} className="fileInput" />
+      <FilePreviewElem key={params.filePath} file={baseURL + params.filePath} />
+    </>
   );
 };

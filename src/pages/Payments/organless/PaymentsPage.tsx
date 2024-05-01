@@ -91,10 +91,6 @@ export const PaymentsPage = () => {
     });
   };
 
-  useEffect(() => {
-    console.log('eventsForUser', eventsForUser)
-  }, [eventsForUser]);
-
   return (
     <Page>
       {showCreateModal && (
@@ -120,19 +116,19 @@ export const PaymentsPage = () => {
           }}
         >
           <MySelect
-            isMulti={true}
+            isMulty={true}
             options={firmsOnCurrentSession}
             onChange={(e: any) => handleFilterChange(e, "firms")}
-            key="id"
+            itemKey="id"
             label="number"
             placeholder="Фирмы"
             width="40%"
           />
           <MySelect
-            isMulti={false}
+            isMulty={false}
             options={convertedStudents}
             onChange={(e: any) => handleFilterChange(e, "students")}
-            key="id"
+            itemKey="id"
             label="fio"
             placeholder="Участники"
           />

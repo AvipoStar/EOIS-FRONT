@@ -1,0 +1,159 @@
+.file-uploader {
+    box-sizing: border-box;
+    background-color: #e3e3e3;
+    border-radius: 10px;
+    color: white;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.droparea {
+    position: relative;
+    transition: 0.2s;
+    font-weight: lighter;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.droparea:hover {
+    background-color: white;
+}
+
+.drag-active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.hint {
+    margin: 15px 0px;
+}
+
+.restriction-notice {
+    color: rgb(51,51,51);
+    text-decoration: underline;
+    margin-bottom: 5px;
+    font-weight: 600;
+
+}
+
+.clear-files-btn-container {
+    margin-bottom: 5px;
+}
+
+.clear-files-btn {
+    padding: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: rgb(85, 85, 85);
+    color: white;
+}
+
+.clear-files-btn:hover {
+    background-color: rgb(100, 100, 100);
+}
+
+.file-preview-elem {
+    position: relative;
+    overflow: hidden;
+    margin-top: 5px ;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    background-color: rgb(85, 85, 85);
+}
+
+.doc-icon-container {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-file-btn {
+    border: none;
+    border-radius: 30px !important;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(210, 210, 210);
+    transition: 0.2s;
+    color: black;
+    padding: 6px;
+}
+
+.remove-file-btn:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.remove-file-filling-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-file-filling-elem {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: rgb(60, 60, 60);
+}
+
+.left {
+    transform: rotate(45deg);
+}
+
+.right {
+    transform: rotate(-45deg);
+}
+
+.file-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.img-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-container img {
+    max-width: 100%;
+    max-height: 170px;
+    min-height: 35px;
+    background-size: cover;
+}
+
+.doc-preview-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 5px;
+}
+
+.fileInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 16px;
+    color: var(--color-main-grey-dark);
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { ReactNode } from "react";
 import "../styles/MyModal.css";
 import HideImage from "../../../Common/assets/icons/arrowRigth.svg";
@@ -21,6 +21,10 @@ export const MyModal = (params: MyModalProps) => {
 
   useEffect(() => {
     document.body.classList.add('modal-open');
+    document.querySelector('.MyModal')?.classList.add('open'); // Добавляем класс "open" при открытии модального окна
+    return () => {
+      document.querySelector('.MyModal')?.classList.remove('open'); // Удаляем класс "open" при закрытии модального окна
+    };
   }, []);
 
   return (

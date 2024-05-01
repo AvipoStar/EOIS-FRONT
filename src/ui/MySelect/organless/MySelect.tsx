@@ -1,17 +1,11 @@
-import React, { useEffect } from "react";
-import "../styles/MySelect.css";
-
 import Select from "react-select";
-import makeAnimated from "react-select/animated";
-
-const animatedComponents = makeAnimated();
-
+import "../styles/MySelect.css";
 interface IMySelect {
-  isMulti: boolean;
+  isMulty: boolean;
   options: any[];
   onChange: any;
   selected?: any;
-  key: string;
+  itemKey: string; // Изменили название свойства key на itemKey
   label: string;
   defaultValues?: any[];
   placeholder: string;
@@ -20,51 +14,50 @@ interface IMySelect {
 
 export const MySelect = (params: IMySelect) => {
   const getOptions = () => {
+    const labelField = params.label;
     const options = params.options?.map((o: any) => ({
-      value: params.key === undefined ? o?.id : o[params.key],
-      label: params.label === undefined ? o.name : o[params.label],
+      value: params.itemKey == undefined ? o?.id : o[params.itemKey],
+      label: labelField ? o[labelField] : o.name,
     }));
     return options;
   };
 
   const customStyles = {
-    control: (provided: any, state: any) => ({
+    control: (provided: any, _state: any) => ({
       ...provided,
-      borderRadius: 10,
       backgroundColor: "#D9D9D9",
       textAlign: "left",
-      zIndex: 2,
-      fontSize: 20,
-      padding: "10px",
-      border: "1px solid #2B2B2B",
-      // width: '100%',
     }),
     option: (provided: any, state: any) => ({
       ...provided,
       backgroundColor: state.isSelected ? "#D9D9D9" : "#e7e7e7",
-      color: state.isSelected ? "#2B2B2B" : "black",
+      color: state.isSelected ? "var(--color-main-grey-dark)" : "black",
       cursor: "pointer",
       borderBottom: "1px solid #2B2B2B",
-      textAlign: "left",
-      zIndex: 1000, // Увеличиваем значение zIndex
+    }),
+    menu: (provided: any, state: any) => ({
+      ...provided,
+      backgroundColor: state.isSelected ? "#D9D9D9" : "#e7e7e7",
     }),
   };
 
   return (
-    <div style={{ width: params.width ?? '100%' }}>
+    <div style={{ width: params.width ?? "100%" }}>
       <Select
-        closeMenuOnSelect={!params.isMulti} // Сворачиваем меню при выборе, если isMulti равно false
-        components={animatedComponents}
+        className="Select"
+        styles={customStyles}
+        closeMenuOnSelect={!params.isMulty}
         defaultValue={params.defaultValues ?? []}
-        isMulti={params.isMulti ?? false}
+        isMulti={params.isMulty ?? false}
         options={getOptions() ?? []}
         onChange={params.onChange}
-        styles={customStyles}
         placeholder={params.placeholder}
         isSearchable={true}
         value={params?.selected}
         menuPortalTarget={document.body}
-        menuPosition='fixed'
+        menuPosition="fixed"
+        noOptionsMessage={() => "Нет данных"}
+        loadingMessage={() => "Поиск"}
       />
     </div>
   );

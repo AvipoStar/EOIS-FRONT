@@ -1,17 +1,19 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/LKPage.css";
 
 import { Page } from "../../../ui/Page/organless/Page";
 import { InfoBlock } from "../../../ui/InfoBlock/organless/InfoBlock";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { convertDate } from "../../../Common/functions/converDate";
 import { baseURL } from "../../../Common/axios/axiosInstance";
 import { LKEditModal } from "./LKEditModal";
 import { LKAttachModal } from "./LKAttachModal";
 import { checkUserFirmRelation } from "../logic/checkUserFirmRelation";
+import { getUserInfo } from "../../../API/getUserInfo";
+import { setUserInfo } from "../../../Common/redux/redusers/dataSlice";
 
 export interface IUser {
-  id: number;
+  id: number | null;
   name: "";
   surname: "";
   patronymic: "";
@@ -27,6 +29,8 @@ export interface IUser {
 }
 
 export const LKPage = () => {
+  const dispatch = useDispatch();
+
   const userInfo = useSelector((state: any) => state.userInfo);
   const roles = useSelector((state: any) => state.roles);
   const profiles = useSelector((state: any) => state.profiles);
@@ -34,6 +38,8 @@ export const LKPage = () => {
   const [showModalEditProfile, setshowModalEditProfile] = useState(false);
   const [showAttachModal, setshowAttachModal] = useState(false);
   const [userFirmInfo, setuserFirmInfo] = useState<any | null>(null);
+
+  const [reloadPage, setreloadPage] = useState(false);
 
   useEffect(() => {
     fetchUserFirmRelation(userInfo.id);
@@ -52,10 +58,24 @@ export const LKPage = () => {
     setuserFirmInfo(response);
   };
 
+  useEffect(() => {
+    const reload = async () => {
+      if (reloadPage) {
+        const newUserInfo = await getUserInfo(userInfo.id);
+        dispatch(setUserInfo(newUserInfo));
+        setreloadPage(false);
+      }
+    };
+    reload();
+  }, [reloadPage, userInfo.id]);
+
   return (
     <>
       {showModalEditProfile && (
-        <LKEditModal setShowModal={setshowModalEditProfile} />
+        <LKEditModal
+          setShowModal={setshowModalEditProfile}
+          setReloadPage={setreloadPage}
+        />
       )}
       {showAttachModal && <LKAttachModal setShowModal={setshowAttachModal} />}
       <Page>

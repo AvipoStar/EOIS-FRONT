@@ -1,52 +1,74 @@
-import React, { useState } from "react";
-import { IUser } from "./LKPage";
+import { useEffect, useState } from "react";
 import { MyModal } from "../../../ui/MyModal/organless/MyModal";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
 import { MyInput } from "../../../ui/MyInput/organless/MyInput";
 import { useSelector } from "react-redux";
-import { changeLoginPassword } from "../logic/editProfile";
+import { changeUser } from "../logic/editProfile";
+import { FileUploader } from "../../../ui/MyFileUploader/organless/MyFileUploader";
+import { toast } from 'react-toastify';
 
 interface ILKEditModal {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setReloadPage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const LKEditModal = (params: ILKEditModal) => {
   const userInfo = useSelector((state: any) => state.userInfo);
 
-  const [loginPassword, setloginPassword] = useState<{
-    login: string;
-    password: string;
-  }>({ login: "", password: "" });
+  const [newUserData, setnewUserData] = useState<any | null>(null);
+
+  useEffect(() => {
+    const lp = {
+      login: userInfo.login,
+      password: userInfo.password,
+      photoPath: userInfo.photoPath,
+    };
+    setnewUserData(lp);
+  }, [userInfo]);
 
   const saveUser = async () => {
-    await changeLoginPassword(
+    const result = await changeUser(
       userInfo.id,
-      loginPassword.login,
-      loginPassword.password
+      newUserData.login,
+      newUserData.password,
+      newUserData.photoPath
     );
+    if(result)
+      {
+        params.setReloadPage(true)
+        toast.success('Данные успешно изменены')
+      }
   };
   return (
     <MyModal
       setShow={params.setShowModal}
       title={"Редактирование профиля"}
-      setEdited={setloginPassword}
+      setEdited={setnewUserData}
       editOrSave={"edit"}
       handleSave={saveUser}
     >
-      <ContainerWithLabel title={"Новый логин"} darkTheme>
+      <ContainerWithLabel title={"Логин"} darkTheme>
         <MyInput
-          value={loginPassword?.login}
+          value={newUserData?.login}
           setValue={(e: any) =>
-            setloginPassword({ ...loginPassword, login: e })
+            setnewUserData({ ...newUserData, login: e })
           }
         />
       </ContainerWithLabel>
-      <ContainerWithLabel title={"Новый пароль"} darkTheme>
+      <ContainerWithLabel title={"Пароль"} darkTheme>
         <MyInput
-          value={loginPassword?.password}
+          value={newUserData?.password}
           setValue={(e: any) =>
-            setloginPassword({ ...loginPassword, password: e })
+            setnewUserData({ ...newUserData, password: e })
           }
+        />
+      </ContainerWithLabel>
+      <ContainerWithLabel title={"Фото"} darkTheme>
+        <FileUploader
+          onFileUploaded={(e: any) =>
+            setnewUserData({ ...newUserData, photoPath: e })
+          }
+          filePath={newUserData?.photoPath}
         />
       </ContainerWithLabel>
     </MyModal>

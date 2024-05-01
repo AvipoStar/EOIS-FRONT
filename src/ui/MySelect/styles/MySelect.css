@@ -1,6 +1,15 @@
-.SelectItem{
-  font-size: 20px;
-  border-color: var(--color-main-grey-light);
-  color: var(--color-main-grey);
-  text-align: left;
+.Select {
+  color: var(--color-main-grey-dark);
+}
+
+.Select__control {
+  border: 1px solid var(--color-main-grey-dark);
+}
+
+.Select__option {
+  color: var(--color-main-grey-dark);
+}
+
+.Select__single-value {
+  color: var(--color-main-grey-dark);
 }

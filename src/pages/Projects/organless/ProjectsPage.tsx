@@ -89,10 +89,10 @@ export const ProjectsPage = () => {
           />
         </ContainerWithLabel>
         <MySelect
-          isMulti={true}
+          isMulty={true}
           options={directions}
           onChange={(e: any) => handleDirectionsChange(e)}
-          key="id"
+          itemKey="id"
           label="name"
           placeholder="Направления"
         />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MyModal } from "../../../ui/MyModal/organless/MyModal";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
 import { MySelect } from "../../../ui/MySelect/organless/MySelect";
@@ -31,14 +31,6 @@ export const PaymentsModal = (params: IPaymentsModal) => {
   const [editedEvent, setEditedEvent] = useState<IPayment | null>(
     params.selectedEvent
   );
-
-  useEffect(() => {
-    console.log("eventTypes", eventTypes);
-  }, [eventTypes]);
-
-  useEffect(() => {
-    console.log("editedEvent", editedEvent);
-  }, [editedEvent]);
 
   useEffect(() => {
     if (selectedFirm) fetchStudentsInFirms(selectedFirm);
@@ -84,10 +76,7 @@ export const PaymentsModal = (params: IPaymentsModal) => {
     if (editedEvent) {
       const fullEvent = editedEvent;
       fullEvent.initiatorId = userInfo.id;
-      console.log("fullEvent", fullEvent);
-      const result = await setEventForUser(fullEvent);
-      // params.setReloadPayments(true);
-      // params.setShow(false);
+      await setEventForUser(fullEvent);
     }
   };
 
@@ -103,8 +92,8 @@ export const PaymentsModal = (params: IPaymentsModal) => {
     >
       <ContainerWithLabel title={"Фирмы"} darkTheme>
         <MySelect
-          key={"id"}
-          isMulti={true}
+          itemKey={"id"}
+          isMulty={true}
           options={firmsOnCurrentSession}
           onChange={(e: any) => handleChangeFirm(e)}
           label={"number"}
@@ -113,8 +102,8 @@ export const PaymentsModal = (params: IPaymentsModal) => {
       </ContainerWithLabel>
       <ContainerWithLabel title={"Участники"} darkTheme>
         <MySelect
-          key={"id"}
-          isMulti={true}
+          itemKey={"id"}
+          isMulty={true}
           options={convertedStudents}
           onChange={(e: any) => handleChange(e, "targetUserIds")}
           label={"fio"}
@@ -123,8 +112,8 @@ export const PaymentsModal = (params: IPaymentsModal) => {
       </ContainerWithLabel>
       <ContainerWithLabel title={"Тип"} darkTheme>
         <MySelect
-          key={"id"}
-          isMulti={false}
+          itemKey={"id"}
+          isMulty={false}
           options={eventTypes}
           onChange={(e: any) => handleChange(e, "eventTypeId")}
           label={"nameEventType"}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { MyModal } from "../../../ui/MyModal/organless/MyModal";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
 import { ISession } from "./SessionsPage";
@@ -59,8 +59,8 @@ export const SessionsModal = (params: ISessionsModal) => {
       </ContainerWithLabel>
       <ContainerWithLabel title={"Количество фирм"} darkTheme>
         <MySelect
-          key={"id"}
-          isMulti={false}
+          itemKey={"id"}
+          isMulty={false}
           options={[
             { id: 1, name: "1" },
             { id: 2, name: "2" },

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import "../styles/TaskmanagerBoard.css";
 
 export interface IBoard {
@@ -10,15 +9,17 @@ export interface IBoard {
 }
 
 export interface ITaskmanagerBoard {
+  key: any;
   board: IBoard | null;
-  setSelectedBoard: React.Dispatch<React.SetStateAction<IBoard | null>>;
+  setSelectedBoard: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export const TaskmanagerBoard = (params: ITaskmanagerBoard) => {
   return (
     <div
+      key={params.key}
       className="TaskmanagerBoard"
-      onDoubleClick={() => params.setSelectedBoard(params.board)}
+      onDoubleClick={() => params.setSelectedBoard(params.board?.id)}
     >
       <div
         className="TaskmanagerBoard__Header"

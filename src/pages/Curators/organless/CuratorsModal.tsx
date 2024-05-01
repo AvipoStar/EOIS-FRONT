@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MyModal } from "../../../ui/MyModal/organless/MyModal";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
 import { MySelect } from "../../../ui/MySelect/organless/MySelect";
@@ -22,10 +22,6 @@ export const CuratorsModal = (params: ICuratorsModal) => {
   const [editedCurator, setEditedCurator] = useState<IUser | null>(
     params.editedCurator
   );
-
-  useEffect(() => {
-    console.log('editedCurator', editedCurator)
-  }, [editedCurator]);
 
   const handleChange = (selectedOption: any, fieldName: string) => {
     setEditedCurator((prev: any) => ({
@@ -83,17 +79,21 @@ export const CuratorsModal = (params: ICuratorsModal) => {
             { id: 1, label: "М" },
           ]}
           editedObject={editedCurator?.gender}
-          onChange={(e: any) => handleChange(e, "gender")} 
-          darkTheme={true}        />
+          onChange={(e: any) => handleChange(e, "gender")}
+          darkTheme={true}
+        />
       </ContainerWithLabel>
       <ContainerWithLabel title={"Профиль"} darkTheme>
         <MySelect
-          isMulti={false}
+          isMulty={false}
           options={profiles}
           onChange={(e: any) => handleChange(e, "profile")}
-          key="id"
+          itemKey="id"
           label="nameProfile"
           placeholder="Профиль"
+          defaultValues={profiles
+            .filter((e: any) => e.id === params.editedCurator?.profile)
+            .map((e: any) => ({ value: e.id, label: e.name }))}
         />
       </ContainerWithLabel>
     </MyModal>

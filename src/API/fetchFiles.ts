@@ -13,6 +13,5 @@ export const getFile = async (linc: string) => {
     Object.defineProperty(file, "url", { value: linc });
     files.push(file);
   }
-  console.log("files", files);
   return files;
 };

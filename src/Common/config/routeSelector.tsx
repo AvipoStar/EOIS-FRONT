@@ -13,7 +13,6 @@ import ProjectsIcon from "../assets/icons/projects.svg";
 import CuratorsIcon from "../assets/icons/curators.svg";
 import PaymentsIcon from "../assets/icons/Bukazoid.svg";
 import SessionsIcon from "../assets/icons/sessions.svg";
-import DemandsIcon from "../assets/icons/demands.svg";
 import TasksIcon from "../assets/icons/tasks.svg";
 
 import LKIcon_dark from "../assets/icons/LK-dark.svg";
@@ -21,7 +20,6 @@ import ProjectsIcon_dark from "../assets/icons/projects-dark.svg";
 import CuratorsIcon_dark from "../assets/icons/curators-dark.svg";
 import PaymentsIcon_dark from "../assets/icons/Bukazoid-dark.svg";
 import SessionsIcon_dark from "../assets/icons/sessions-dark.svg";
-import DemandsIcon_dark from "../assets/icons/demands-dark.svg";
 import TasksIcon_dark from "../assets/icons/tasks-dark.svg";
 
 import ExitIcon from "../assets/icons/exit.svg";

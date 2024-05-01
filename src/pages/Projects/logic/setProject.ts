@@ -12,7 +12,6 @@ export const setProject = async (project: IProject) => {
         direction: project.direction,
       })
       .then((res) => {
-        console.log('res', res)
         toast.success("Изменения сохранены");
       })
       .catch((err) => {
@@ -27,7 +26,6 @@ export const setProject = async (project: IProject) => {
         direction: project.direction,
       })
       .then((res) => {
-        console.log('res', res)
         toast.success("Проект сохранен");
       })
       .catch((err) => {

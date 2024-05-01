@@ -1,4 +1,3 @@
-import React, { ChangeEvent, useState } from "react";
 import "../styles/SubmitButton.css";
 
 interface IMyInput {

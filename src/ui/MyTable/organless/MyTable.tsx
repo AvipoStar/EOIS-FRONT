@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "../styles/MyTable.css";
+import React from "react";
 
 interface IMyTable {
   list: any[];
@@ -13,23 +14,30 @@ export const MyTable = (params: IMyTable) => {
     params.onDoubleClick(item);
   };
 
-  useEffect(() => {
-    console.log('params.list', params.list)
-  }, [params.list]);
-
   return (
-    <ul className="MyTableList">
+    <div className="MyTableList">
       {params.list.map((item: any) => (
-        <li
+        <div
           className="MyTableItem"
           key={item.id}
           onDoubleClick={() => handleDoubleClick(item)}
         >
-          {Array.isArray(params.field)
-            ? params.field.map((f: any) => `${item[f]}${params.separator ? ` ${params.separator} ` : ' '}`)
-            : item[params.field]}
-        </li>
+          {Array.isArray(params.field) ? (
+            params.field.map((f: any, index: number) => (
+              <React.Fragment key={index}>
+                <span>{item[f]}</span>
+                {index !== params.field.length - 1 && (
+                  <span>
+                    {params.separator ? `${params.separator} ` : " "}
+                  </span>
+                )}
+              </React.Fragment>
+            ))
+          ) : (
+            <span>{item[params.field]}</span>
+          )}
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };

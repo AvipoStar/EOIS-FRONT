@@ -16,7 +16,6 @@ export const setCurator = async (curator: IUser) => {
         photoPath: "",
       })
       .then((res) => {
-        console.log("res", res);
         toast.success("Изменения сохранены");
       })
       .catch((err) => {
@@ -34,7 +33,6 @@ export const setCurator = async (curator: IUser) => {
         photoPath: "",
       })
       .then((res) => {
-        console.log("res", res);
         toast.success("Куратор сохранен");
       })
       .catch((err) => {

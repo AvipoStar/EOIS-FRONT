@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { MyModal } from "../../../ui/MyModal/organless/MyModal";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
 import { IProject } from "./ProjectsPage";
@@ -44,10 +44,10 @@ export const ProjectsModal = (params: IProjectsModal) => {
     >
       <ContainerWithLabel title={"Направление"} darkTheme>
         <MySelect
-          isMulti={false}
+          isMulty={false}
           options={directions}
           onChange={(e: any) => handleChange(e, "direction")}
-          key="id"
+          itemKey="id"
           label="name"
           placeholder="Направление"
           defaultValues={directions

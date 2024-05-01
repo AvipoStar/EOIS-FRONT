@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { MyModal } from "../../../ui/MyModal/organless/MyModal";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
 import { MySelect } from "../../../ui/MySelect/organless/MySelect";
@@ -45,11 +45,11 @@ export const TaskmanagerBoardModal = (params: ITaskmanagerBoardModal) => {
     >
       <ContainerWithLabel title={"Фирма"} darkTheme>
         <MySelect
-          isMulti={false}
+          isMulty={false}
           options={firmsOnCurrentSession}
-          key="id"
+          itemKey="id"
           label="number"
-          placeholder="Фирмы"
+          placeholder="Фирма"
           onChange={(e: any) => handleChange(e, "firm")}
         />
       </ContainerWithLabel>

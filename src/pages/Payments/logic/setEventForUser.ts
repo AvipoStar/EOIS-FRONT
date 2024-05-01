@@ -1,10 +1,8 @@
 import { toast } from "react-toastify";
 import { axiosInstance } from "../../../Common/axios/axiosInstance";
 import { IPayment } from "../organless/PaymentsPage";
-import { useSelector } from "react-redux";
 
 export const setEventForUser = async (payment: IPayment) => {
-  console.log("payment 111", payment);
   try {
     await Promise.all(
       payment.targetUserIds.map(async (ui: any) => {
@@ -16,7 +14,6 @@ export const setEventForUser = async (payment: IPayment) => {
           amount: payment.amount,
           description: payment.description,
         });
-        console.log("res", res);
         toast.success("Изменения сохранены");
       })
     );

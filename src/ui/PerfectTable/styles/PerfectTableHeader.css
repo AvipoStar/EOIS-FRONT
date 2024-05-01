@@ -1,0 +1,55 @@
+.PerfectTableHeader {
+  width: 100%;
+  color: var(--color-main-grey-light);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  position: relative;
+}
+.PerfectTableHeader__FakeBlock {
+  height: 17px;
+  border-bottom: 0.2px solid rgba(51, 51, 51, 0.15);
+  display: table-row;
+}
+.PerfectTableHeader__BackgroundBlock {
+  background: var(--color-main-grey);
+  height: 36px;
+  width: -webkit-fill-available;
+  position: absolute;
+  top: 0;
+  margin: 0px 16px 0px 19px;
+  border-radius: 10px;
+}
+.PerfectTableHeaderItem__Block {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  cursor: pointer;
+}
+.PerfectTableHeaderItem__th {
+  user-select: none;
+  text-align: start;
+  vertical-align: middle;
+  padding: 0;
+  padding-right: 25px;
+}
+.PerfectTableHeaderItem__th img {
+}
+.PerfectTableHeaderItem__VisibleImage img {
+  opacity: 0;
+}
+.PerfectTableHeaderItem__VisibleImage:hover img {
+  opacity: 1;
+}
+.PerfectTableHeaderItem__VisibleImageAlways {
+  opacity: 1 !important;
+}
+.PerfectTableHeader th:first-child {
+  padding-left: 39px;
+  border-radius: 10px 0px 0px 10px;
+}
+.PerfectTableHeader th:last-child {
+  padding-right: 36px;
+  border-radius: 0px 10px 10px 0px;
+}

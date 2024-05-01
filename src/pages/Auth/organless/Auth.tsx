@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../styles/Auth.css";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
 import { MyInput } from "../../../ui/MyInput/organless/MyInput";
-import { MyDatePicker } from "../../../ui/MyDatePicker/organless/MyDatePicker";
 import { SubmitButton } from "../../../ui/SubmitButton/organless/SubmitButton";
-import { IRadioOption, MyRadioButton } from "../../../ui/MyRadioButton/organless/MyRadioButton";
+import {
+  IRadioOption,
+  MyRadioButton,
+} from "../../../ui/MyRadioButton/organless/MyRadioButton";
 import { AuthOrReg } from "../../../API/auth";
 import { ToastContainer } from "react-toastify";
 import { getUserInfo } from "../../../API/getUserInfo";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setUserInfo } from "../../../Common/redux/redusers/dataSlice";
 
 export interface IAuthData {
@@ -38,8 +40,7 @@ const defaultAuthData: IAuthData = {
 };
 
 export const Auth = () => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [authData, setAuthData] = useState<IAuthData>(defaultAuthData);
   const [authOrReg, setAuthOrReg] = useState(true);
@@ -52,14 +53,13 @@ export const Auth = () => {
     const result = await AuthOrReg(authData, authOrReg);
     if (result) {
       localStorage.setItem("EOIS_TOKEN", result?.token);
-      fetchUserInfo(result.user_id)
+      fetchUserInfo(result.user_id);
     }
-
   };
 
   const fetchUserInfo = async (userId: number) => {
-    const userInfo = await getUserInfo(userId)
-    dispatch(setUserInfo(userInfo))
+    const userInfo = await getUserInfo(userId);
+    dispatch(setUserInfo(userInfo));
   };
 
   return (
@@ -68,31 +68,44 @@ export const Auth = () => {
         {!authOrReg && (
           <>
             <ContainerWithLabel title="Фамилия">
-              <MyInput value={authData?.surname} setValue={(e) => setAuthData({ ...authData, surname: e })} />
+              <MyInput
+                value={authData?.surname}
+                setValue={(e) => setAuthData({ ...authData, surname: e })}
+              />
             </ContainerWithLabel>
             <ContainerWithLabel title="Имя">
-              <MyInput value={authData?.name} setValue={(e) => setAuthData({ ...authData, name: e })} />
+              <MyInput
+                value={authData?.name}
+                setValue={(e) => setAuthData({ ...authData, name: e })}
+              />
             </ContainerWithLabel>
             <ContainerWithLabel title="Отчество">
-              <MyInput value={authData?.patronimyc} setValue={(e) => setAuthData({ ...authData, patronimyc: e })} />
+              <MyInput
+                value={authData?.patronimyc}
+                setValue={(e) => setAuthData({ ...authData, patronimyc: e })}
+              />
             </ContainerWithLabel>
-            <ContainerWithLabel title="Дата рождения">
+            {/* <ContainerWithLabel title="Дата рождения">
               <MyDatePicker
                 selectedDate={authData?.bornDate}
                 onDateChange={(e) => setAuthData({ ...authData, bornDate: e })}
               />
-            </ContainerWithLabel>
+            </ContainerWithLabel> */}
             <ContainerWithLabel title="Пол">
               <MyRadioButton
                 options={options}
                 editedObject={authData.gender}
                 onChange={(e: any) => setAuthData({ ...authData, gender: e })}
+                darkTheme={false}
               />
             </ContainerWithLabel>
           </>
         )}
         <ContainerWithLabel title="Логин">
-          <MyInput value={authData?.login} setValue={(e) => setAuthData({ ...authData, login: e })} />
+          <MyInput
+            value={authData?.login}
+            setValue={(e) => setAuthData({ ...authData, login: e })}
+          />
         </ContainerWithLabel>
         <ContainerWithLabel title="Пароль">
           <MyInput
@@ -103,7 +116,10 @@ export const Auth = () => {
         </ContainerWithLabel>
       </div>
       <div className="ButtonsBlock">
-        <SubmitButton text={authOrReg ? "Вход" : "Регистрация"} onClick={handleLogin} />
+        <SubmitButton
+          text={authOrReg ? "Вход" : "Регистрация"}
+          onClick={handleLogin}
+        />
         <div className="AltButton" onClick={handleClick}>
           {!authOrReg ? "Вход" : "Регистрация"}
         </div>

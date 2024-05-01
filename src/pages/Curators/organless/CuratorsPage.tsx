@@ -12,6 +12,8 @@ import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/Con
 import { getCurators } from "../logic/getCurators";
 import { IUser } from "../../LK/organless/LKPage";
 import { useDebounse } from "../../../Common/hooks/useDebounce";
+import { PerfectTable } from "../../../ui/PerfectTable/organelles/PerfectTable";
+import { getTableSettings } from "../logic/getTableSettings";
 
 export const CuratorsPage = () => {
   const userInfo = useSelector((state: any) => state.userInfo);
@@ -25,9 +27,7 @@ export const CuratorsPage = () => {
   const [searchString, setSearchString] = useState("");
   const debouncedValue = useDebounse(searchString);
 
-
   useEffect(() => {
-    console.log('profiles', profiles)
     setSelectedProfiles(profiles.map((e: any) => e.id));
   }, [profiles]);
 
@@ -82,20 +82,25 @@ export const CuratorsPage = () => {
           />
         </ContainerWithLabel>
         <MySelect
-          isMulti={true}
+          isMulty={true}
           options={profiles}
           onChange={(e: any) => handleDirectionsChange(e)}
-          key="id"
+          itemKey="id"
           label="nameProfile"
           placeholder="Профиль"
         />
       </FilterBlock>
       <InfoBlock title={"Кураторы"}>
-        <MyTable
+        <PerfectTable
+          nameTable={"Кураторы"}
+          table={curators}
+          tableSettings={getTableSettings(curators, profiles)}
+        />
+        {/* <MyTable
           list={curators}
           onDoubleClick={(e: IUser) => setSelectedCurator(e)}
           field={['surname', 'name', 'patronymic']}
-        />
+        /> */}
       </InfoBlock>
     </Page>
   );

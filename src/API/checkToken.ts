@@ -3,7 +3,6 @@ import { axiosInstance } from "../Common/axios/axiosInstance";
 
 export const checkToken = async (token: string) => {
   let response: any;
-  console.log('checkToken', token)
   await axiosInstance
     .post("authReg/checkToken", { token: token })
     .then((res) => {

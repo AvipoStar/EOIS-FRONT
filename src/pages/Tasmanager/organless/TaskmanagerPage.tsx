@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Page } from "../../../ui/Page/organless/Page";
 import {
   IBoard,
   TaskmanagerBoard,
 } from "../../../ui/TaskmanagerBoard/organless/TaskmanagerBoard";
 import { getBoards } from "../logic/getBoards";
-import { Navigate, useNavigate } from "react-router-dom";
-import { FilterBlock } from "../../../ui/FilterBlock/organless/FilterBlock";
-import { TaskmanagerBoardModal } from "./TaskmanagerBoardModal";
+import { useNavigate } from "react-router-dom";
+import { TaskmanagerBoardModal } from "../molecules/TaskmanagerBoardModal";
 
 export const TaskmanagerPage = () => {
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ export const TaskmanagerPage = () => {
   }, []);
 
   useEffect(() => {
-    fetchBoards(1);
+    if (reloadBoards) fetchBoards(1);
   }, [reloadBoards]);
 
   const fetchBoards = async (firmId: number) => {
@@ -32,7 +31,7 @@ export const TaskmanagerPage = () => {
   };
 
   useEffect(() => {
-    if (selectedBoard) navigate(`/tasks/${selectedBoard?.id}`);
+    if (selectedBoard) navigate(`/tasks/${selectedBoard}`);
     else navigate(`/tasks`);
   }, [selectedBoard]);
 
@@ -51,12 +50,13 @@ export const TaskmanagerPage = () => {
           <TaskmanagerBoard
             board={b}
             setSelectedBoard={(e: any) => setselectedBoard(e)}
+            key={b.id}
           />
         );
       })}
       <div
         className="TaskmanagerBoard"
-        onDoubleClick={() => setshowCreateModal(true)}
+        onClick={() => setshowCreateModal(true)}
       >
         Новая доска
       </div>

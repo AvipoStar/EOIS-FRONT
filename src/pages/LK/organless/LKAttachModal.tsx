@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { IUser } from "./LKPage";
+import { useEffect, useState } from "react";
 import { MyModal } from "../../../ui/MyModal/organless/MyModal";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
-import { MyInput } from "../../../ui/MyInput/organless/MyInput";
 import { useSelector } from "react-redux";
-import { changeLoginPassword } from "../logic/editProfile";
 import { MySelect } from "../../../ui/MySelect/organless/MySelect";
 import { attachUserToFirm } from "../logic/attachUserToFirm";
 import { IProject } from "../../Projects/organless/ProjectsPage";
@@ -71,8 +68,8 @@ export const LKAttachModal = (params: ILKAttachModal) => {
     >
       <ContainerWithLabel title={"Фирма"} darkTheme>
         <MySelect
-          key={"id"}
-          isMulti={false}
+          itemKey={"id"}
+          isMulty={false}
           options={firmsOnCurrentSession}
           onChange={(e: any) => handleChangeAttachData(e.value, "firmId")}
           label={"number"}
@@ -81,20 +78,20 @@ export const LKAttachModal = (params: ILKAttachModal) => {
       </ContainerWithLabel>
       <ContainerWithLabel title={"Профиль"} darkTheme>
         <MySelect
-          isMulti={false}
+          isMulty={false}
           options={profiles}
           onChange={(e: any) => handleChangeAttachData(e.value, "profileId")}
-          key="id"
+          itemKey="id"
           label="nameProfile"
           placeholder="Профиль"
         />
       </ContainerWithLabel>
       <ContainerWithLabel title={"Проекты"} darkTheme>
         <MySelect
-          isMulti={true}
+          isMulty={true}
           options={projects}
           onChange={(e: any) => handleChangeAttachData(e, "projectIds")}
-          key="id"
+          itemKey="id"
           label="nameProject"
           placeholder="Проекты"
         />

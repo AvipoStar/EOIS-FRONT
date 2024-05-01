@@ -1,18 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IUser } from "../../../pages/LK/organless/LKPage";
 
 const userInfo = createSlice({
   name: "userInfo",
   initialState: {
     id: null,
-    name: null,
-    surname: null,
-    patronimyc: null,
-    bornDate: null,
-    gender: null,
-    sessionCount: null,
-    photoPath: null,
-    roleId: null,
-  },
+    name: "",
+    surname: "",
+    patronymic: "",
+    bornDate: "",
+    roleId: 0,
+    balance: 0,
+    gender: 0,
+    profileId: 0,
+    photoPath: '',
+    studentIsAttachedToFirm: false,
+    userPhoto: '',
+    profile: '',
+  } as IUser,
   reducers: {
     setUserInfo: (_state, action) => {
       return action.payload;
@@ -22,13 +27,13 @@ const userInfo = createSlice({
 
 const profileSlice = createSlice({
   name: "profile",
-  initialState: [],
+  initialState: [] ,
   reducers: {
     setProfiles: (_state, action) => {
       return action.payload;
     },
   },
-})
+});
 
 const directionsSlice = createSlice({
   name: "direction",
@@ -38,7 +43,7 @@ const directionsSlice = createSlice({
       return action.payload;
     },
   },
-})
+});
 
 const rolesSlice = createSlice({
   name: "role",
@@ -48,7 +53,7 @@ const rolesSlice = createSlice({
       return action.payload;
     },
   },
-})
+});
 
 const eventTypesSlice = createSlice({
   name: "eventType",
@@ -58,7 +63,7 @@ const eventTypesSlice = createSlice({
       return action.payload;
     },
   },
-})
+});
 
 const firmsOnCurrentSession = createSlice({
   name: "firmsOnCurrentSession",
@@ -68,7 +73,17 @@ const firmsOnCurrentSession = createSlice({
       return action.payload;
     },
   },
-})
+});
+
+const taskPriorities = createSlice({
+  name: "taskPriorities",
+  initialState: [],
+  reducers: {
+    setTaskPriorities: (_state, action) => {
+      return action.payload;
+    },
+  },
+});
 
 export const { setUserInfo } = userInfo.actions;
 export const { setProfiles } = profileSlice.actions;
@@ -76,7 +91,7 @@ export const { setDirections } = directionsSlice.actions;
 export const { setRoles } = rolesSlice.actions;
 export const { setEventTypes } = eventTypesSlice.actions;
 export const { setFirmsOnCurrentSession } = firmsOnCurrentSession.actions;
-
+export const { setTaskPriorities } = taskPriorities.actions;
 
 export default {
   userInfo: userInfo.reducer,
@@ -85,4 +100,5 @@ export default {
   roles: rolesSlice.reducer,
   eventTypes: eventTypesSlice.reducer,
   firmsOnCurrentSession: firmsOnCurrentSession.reducer,
+  taskPriorities: taskPriorities.reducer,
 };

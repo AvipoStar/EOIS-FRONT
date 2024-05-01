@@ -10,25 +10,20 @@ import {
   setProfiles,
   setRoles,
   setUserInfo,
+  setTaskPriorities,
 } from "./Common/redux/redusers/dataSlice";
 import { useEffect } from "react";
 import { getProfiles } from "./API/getProfiles";
 import { getDirections } from "./API/getDirections";
 import { getRoles } from "./API/getRoles";
 import { checkToken } from "./API/checkToken";
-import { Auth } from "./pages/Auth/organless/Auth";
-import { LKPage } from "./pages/LK/organless/LKPage";
 import { getUserInfo } from "./API/getUserInfo";
 import { NavigationMenu } from "./ui/NavigationMenu/organless/NavigationMenu";
-import { ProjectsPage } from "./pages/Projects/organless/ProjectsPage";
-import { CuratorsPage } from "./pages/Curators/organless/CuratorsPage";
-import { PaymentsPage } from "./pages/Payments/organless/PaymentsPage";
 import { getEventTypes } from "./API/getEventTypes";
 import { getFirmsOnCurrentSession } from "./API/getFirmsOnCurrentSession";
-import { SessionsPage } from "./pages/Sessions/organless/SessionsPage";
-import { TaskmanagerPage } from "./pages/Tasmanager/organless/TaskmanagerPage";
 import { routes } from "./Common/config/routeSelector";
 import { TaskmanagerBoardPage } from "./pages/Tasmanager/organless/TaskmanagerBoardPage";
+import { getTaskPriorities } from "./API/getTaskPriorities";
 
 export const App = () => {
   const navigate = useNavigate();
@@ -50,7 +45,6 @@ export const App = () => {
 
   const tokenAuth = async (token: string) => {
     const result = await checkToken(token); // Проверка токена
-    console.log("tokenAuth", result);
     if (result.success) {
       localStorage.setItem("EOIS_TOKEN", result.token);
       fetchUserInfo(result.user_id);
@@ -90,6 +84,11 @@ export const App = () => {
     dispatch(setFirmsOnCurrentSession(firms));
   };
 
+  const fetchTaskmanagerPriorities = async () => {
+    const priorities = await getTaskPriorities();
+    dispatch(setTaskPriorities(priorities));
+  };
+
   useEffect(() => {
     if (userInfo.id) {
       fetchProfiles();
@@ -97,6 +96,7 @@ export const App = () => {
       fetchRoles();
       fetchEventTypes();
       fetchFirmsOnCurrentSession();
+      fetchTaskmanagerPriorities();
       navigate("/LK");
     }
   }, [userInfo]);
@@ -104,14 +104,18 @@ export const App = () => {
   return (
     <div className="App">
       {userInfo?.id && <Header />}
-      <div className="MainPage">
+      <div className="MainPage" style={ {justifyContent: location.pathname === '/auth' ? 'center' : 'initial' }} >
         {userInfo?.id && <NavigationMenu userRoleId={userInfo.id} />}
         <Routes>
-          <Route path="/tasks/:id" element={<TaskmanagerBoardPage />} />
+          <Route
+            path="/tasks/:id"
+            element={<TaskmanagerBoardPage />}
+            key="taskPage"
+          />
           {routes.map((r: any) => (
-            <Route path={r.path} element={r.element} />
+            <Route path={r.path} element={r.element} key={r.path} />
           ))}
-          <Route path="*" element={<Navigate to="/lk" />} />
+          <Route path="*" element={<Navigate to="/auth" />} />
         </Routes>
       </div>
     </div>
