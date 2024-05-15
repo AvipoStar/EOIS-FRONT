@@ -12,12 +12,13 @@ import { ToastContainer } from "react-toastify";
 import { getUserInfo } from "../../../API/getUserInfo";
 import { useDispatch } from "react-redux";
 import { setUserInfo } from "../../../Common/redux/redusers/dataSlice";
+import { MyDatePicker } from "../../../ui/MyDatePicker/organless/MyDatePicker";
 
 export interface IAuthData {
   surname?: string;
   name?: string;
   patronimyc?: string;
-  bornDate?: Date;
+  bornDate?: string;
   gender?: number;
   login?: string;
   password?: string;
@@ -33,7 +34,7 @@ const defaultAuthData: IAuthData = {
   surname: "",
   name: "",
   patronimyc: "",
-  bornDate: new Date(),
+  bornDate: "",
   gender: 0,
   login: "",
   password: "",
@@ -85,12 +86,12 @@ export const Auth = () => {
                 setValue={(e) => setAuthData({ ...authData, patronimyc: e })}
               />
             </ContainerWithLabel>
-            {/* <ContainerWithLabel title="Дата рождения">
+            <ContainerWithLabel title="Дата рождения">
               <MyDatePicker
-                selectedDate={authData?.bornDate}
+                initialDate={authData?.bornDate}
                 onDateChange={(e) => setAuthData({ ...authData, bornDate: e })}
               />
-            </ContainerWithLabel> */}
+            </ContainerWithLabel>
             <ContainerWithLabel title="Пол">
               <MyRadioButton
                 options={options}

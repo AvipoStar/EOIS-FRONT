@@ -2,11 +2,20 @@
   display: flex;
   background-color: var(--color-main-grey);
   border-radius: 10px;
-  width: 98%;
+  width: 55%;
   padding: 15px;
   flex-direction: row;
   align-items: flex-start;
   gap: 15px;
+  box-shadow: inset 0px 0px 0px 1px #d9d9d942;
+
+}
+
+.TopBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%;
 }
 
 .UserInfoBlock {
@@ -20,7 +29,7 @@
 }
 
 .UserFIOBlock {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   text-align: left;
 }
@@ -28,18 +37,19 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-size: 22px;
+  font-size: 18px;
+  width: 100%;
 }
 
 .CurrentSessionUserInfo {
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  flex-direction: column-reverse;
+  width: 45%;
   align-items: stretch;
   gap: 15px;
 }
 .UserBalance {
-  font-size: 48px;
+  font-size: 30px;
   font-weight: bold;
 }
 

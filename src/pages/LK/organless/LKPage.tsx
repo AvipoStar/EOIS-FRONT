@@ -98,84 +98,89 @@ export const LKPage = () => {
       )}
       {showAttachModal && <LKAttachModal setShowModal={setshowAttachModal} />}
       <Page>
-        <div className="MainUserInfoBlock">
-          <div className="UserPhotoBlock">
-            <img
-              src={`${baseURL}${userInfo.photoPath}`}
-              className="UserPhoto"
-              alt="Фото"
-            />
-          </div>
-          <div className="UserInfoBlock">
-            <div className="UserFIOBlock">{`${userInfo.surname} ${userInfo.name} ${userInfo.patronymic}`}</div>
-            <div className="UserSubInfoBlock">
-              <div className="UserSubInfoItem">{`Дата рождения: ${
-                userInfo.bornDate && convertDate(userInfo.bornDate)
-              }`}</div>
-              <div className="UserSubInfoItem">{`Пол: ${
-                userInfo.gender == 1 ? "Мужской" : "Женский"
-              }`}</div>
-              <div className="UserSubInfoItem">
-                {`Роль: ${roles
-                  ?.map(
-                    (role: any) => role.id === userInfo.roleId && role.nameRole
-                  )
-                  .filter(Boolean)}`}
-              </div>
-              <div
-                className="UserSubInfoItemm__EditProfile"
-                onClick={handleEditClick}
-              >
-                Редактирование профиля
-              </div>
-              {!userFirmInfo && userInfo.roleId == 2 && (
-                <div
-                  className="UserSubInfoItemm__EditProfile"
-                  onClick={handleAttachClick}
-                >
-                  Прикрепиться к фирме
-                </div>
-              )}
+        <div className="TopBlock">
+          <div className="MainUserInfoBlock">
+            <div className="UserPhotoBlock">
+              <img
+                src={`${baseURL}${userInfo.photoPath}`}
+                className="UserPhoto"
+                alt="Фото"
+              />
             </div>
-          </div>
-        </div>
-        {userInfo.roleId == 2 && (
-          <>
-            <div className="CurrentSessionUserInfo">
-              <InfoBlock title="Текущий баланс">
-                <div
-                  className={
-                    userInfo.balance >= 0
-                      ? "UserBalance Positive"
-                      : "UserBalance Negative"
-                  }
-                >
-                  {userInfo.balance}
-                </div>
-              </InfoBlock>
-
-              <InfoBlock title={`Текущая фирма: ${userFirmInfo?.firm_name}`}>
-                <div className="UserCurrentFirm">
-                  {`Текущий профиль: ${profiles
-                    .map(
-                      (p: any) => p.id == userFirmInfo?.profile && p.nameProfile
+            <div className="UserInfoBlock">
+              <div className="UserFIOBlock">{`${userInfo.surname} ${userInfo.name} ${userInfo.patronymic}`}</div>
+              <div className="UserSubInfoBlock">
+                <div className="UserSubInfoItem">{`Дата рождения: ${
+                  userInfo.bornDate && convertDate(userInfo.bornDate)
+                }`}</div>
+                <div className="UserSubInfoItem">{`Пол: ${
+                  userInfo.gender == 1 ? "Мужской" : "Женский"
+                }`}</div>
+                <div className="UserSubInfoItem">
+                  {`Роль: ${roles
+                    ?.map(
+                      (role: any) =>
+                        role.id === userInfo.roleId && role.nameRole
                     )
                     .filter(Boolean)}`}
                 </div>
-                <div className="UserCurrentFirm">
-                  {`Текущие проекты: ${userFirmInfo?.projects}`}
+                <div
+                  className="UserSubInfoItemm__EditProfile"
+                  onClick={handleEditClick}
+                >
+                  Редактирование профиля
                 </div>
-              </InfoBlock>
+                {!userFirmInfo && userInfo.roleId == 2 && (
+                  <div
+                    className="UserSubInfoItemm__EditProfile"
+                    onClick={handleAttachClick}
+                  >
+                    Прикрепиться к фирме
+                  </div>
+                )}
+              </div>
             </div>
+          </div>
+          {userInfo.roleId == 2 && (
+            <>
+              <div className="CurrentSessionUserInfo">
+                <InfoBlock title="Текущий баланс">
+                  <div
+                    className={
+                      userInfo.balance >= 0
+                        ? "UserBalance Positive"
+                        : "UserBalance Negative"
+                    }
+                  >
+                    {userInfo.balance}
+                  </div>
+                </InfoBlock>
 
-            <InfoBlock title={"Прошлые смены"}>
-              <PerfectTable
-                nameTable={"Прошлые смены"}
-                table={userSessions}
-                tableSettings={getSessionsTableSettings(profiles, sessions)}
-              />
-            </InfoBlock>
-          </>
+                <InfoBlock title={`Текущая фирма: ${userFirmInfo?.firm_name}`}>
+                  <div className="UserCurrentFirm">
+                    {`Текущий профиль: ${profiles
+                      .map(
+                        (p: any) =>
+                          p.id == userFirmInfo?.profile && p.nameProfile
+                      )
+                      .filter(Boolean)}`}
+                  </div>
+                  <div className="UserCurrentFirm">
+                    {`Текущие проекты: ${userFirmInfo?.projects}`}
+                  </div>
+                </InfoBlock>
+              </div>
+            </>
+          )}
+        </div>
+        {userInfo.roleId == 2 && (
+          <InfoBlock title={"Прошлые смены"}>
+            <PerfectTable
+              nameTable={"Прошлые смены"}
+              table={userSessions}
+              tableSettings={getSessionsTableSettings(profiles, sessions)}
+            />
+          </InfoBlock>
         )}
       </Page>
     </>

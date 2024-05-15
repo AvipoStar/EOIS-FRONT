@@ -29,12 +29,16 @@
   padding: 5px;
 }
 
+.RouteText {
+  text-overflow: ellipsis;
+}
+
 .selected {
   background-color: var(--color-main-grey-light);
   color: var(--color-main-grey-dark);
 }
 
-.exit{
+.exit {
   min-width: 220px;
   color: var(--color-main-red);
   cursor: pointer;
@@ -48,7 +52,6 @@
   border-radius: 15px;
   padding: 5px;
 }
-.exit:hover{
+.exit:hover {
   color: var(--color-main-red-hover);
-  
 }

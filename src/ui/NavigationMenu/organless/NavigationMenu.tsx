@@ -66,7 +66,7 @@ export const NavigationMenu = (params: INavigationMenu) => {
                 src={r.id == selectedRouteId ? r.icon_dark : r.icon}
                 alt="icon"
               />
-              {isOpened && <div>{r.name}</div>}
+              {isOpened && <div className="RouteText">{r.name}</div>}
             </div>
           );
         })}

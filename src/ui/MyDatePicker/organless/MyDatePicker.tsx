@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/MyDatePicker.css'
 interface IDatePicker {
-  initialDate: string;
+  initialDate?: string;
   onDateChange: (newDate: string) => void;
 }
 export const MyDatePicker = (params: IDatePicker) => {

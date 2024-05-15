@@ -4,23 +4,22 @@ import { Page } from "../../../ui/Page/organless/Page";
 import { useSelector } from "react-redux";
 import { FilterBlock } from "../../../ui/FilterBlock/organless/FilterBlock";
 import { MySelect } from "../../../ui/MySelect/organless/MySelect";
-import { CuratorsModal } from "./CuratorsModal";
+import { StudentsModal } from "./StudentsModal";
 import { MyInput } from "../../../ui/MyInput/organless/MyInput";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
-import { getCurators } from "../logic/getCurators";
 import { IUser } from "../../LK/organless/LKPage";
 import { useDebounse } from "../../../Common/hooks/useDebounce";
 import { UserGallery } from "../../../ui/Gallery/organless/UserGallery";
 
-export const CuratorsPage = () => {
+export const StudentsPage = () => {
   const userInfo = useSelector((state: any) => state.userInfo);
   const profiles = useSelector((state: any) => state.profiles);
 
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [selectedProfiles, setSelectedProfiles] = useState<any | null>(null);
-  const [curators, setCurators] = useState<IUser[]>([]);
-  const [selectedCurator, setSelectedCurator] = useState<IUser | null>(null);
-  const [reloadCurator, setReloadCurator] = useState(false);
+  const [students, setStudents] = useState<IUser[]>([]);
+  const [selectedStudent, setSelectedStudent] = useState<IUser | null>(null);
+  const [reloadStudents, setReloadStudents] = useState(false);
   const [searchString, setSearchString] = useState("");
   const debouncedValue = useDebounse(searchString);
 
@@ -33,11 +32,11 @@ export const CuratorsPage = () => {
   }, [selectedProfiles, debouncedValue]);
 
   useEffect(() => {
-    if (reloadCurator) {
+    if (reloadStudents) {
       fetchCurators();
-      setReloadCurator(false);
+      setReloadStudents(false);
     }
-  }, [reloadCurator]);
+  }, [reloadStudents]);
 
   const handleDirectionsChange = (event: any) => {
     const values = event.map((e: any) => e.value);
@@ -45,32 +44,32 @@ export const CuratorsPage = () => {
   };
 
   const fetchCurators = async () => {
-    const prIds =
-      selectedProfiles?.length > 0
-        ? selectedProfiles
-        : profiles.map((d: any) => d.id);
-    const result = await getCurators(prIds, debouncedValue);
-    if (result) setCurators(result);
+    // const prIds =
+    //   selectedProfiles?.length > 0
+    //     ? selectedProfiles
+    //     : profiles.map((d: any) => d.id);
+    // const result = await getCurators(prIds, debouncedValue);
+    // if (result) setStudents(result);
   };
 
   useEffect(() => {
-    if (selectedCurator) setShowCreateModal(true);
-  }, [selectedCurator]);
+    if (selectedStudent) setShowCreateModal(true);
+  }, [selectedStudent]);
 
   return (
     <Page>
       {showCreateModal && (
-        <CuratorsModal
-          editedCurator={selectedCurator}
+        <StudentsModal
+          editedCurator={selectedStudent}
           setShow={setShowCreateModal}
-          setEditedCurator={setSelectedCurator}
-          setReloadCurators={setReloadCurator}
+          setEditedCurator={setSelectedStudent}
+          setReloadCurators={setReloadStudents}
         />
       )}
       <FilterBlock
-        showCreateButton={userInfo.roleId != 2}
+        showCreateButton={false}
         setShowCreateModal={() => setShowCreateModal(true)}
-        buttonText="Новый куратор"
+        buttonText={""} // buttonText="Новый куратор"
       >
         <ContainerWithLabel title={"Поиск"}>
           <MyInput
@@ -88,10 +87,10 @@ export const CuratorsPage = () => {
           placeholder="Профиль"
         />
       </FilterBlock>
-        <UserGallery
-          array={curators}
-          onDoubliClick={(e: any) => setSelectedCurator(e)}
-        />
+      <UserGallery
+        array={students}
+        onDoubliClick={(e: any) => setSelectedStudent(e)}
+      />
     </Page>
   );
 };

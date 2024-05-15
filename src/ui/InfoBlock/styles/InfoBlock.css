@@ -6,8 +6,9 @@
   padding: 15px;
   align-items: flex-start;
   gap: 15px;
-  width: 99%;
+  width: 100%;
   overflow: auto;
+  box-shadow: inset 0px 0px 0px 1px #d9d9d942;
 }
 
 .InfoBlock__title {
@@ -22,6 +23,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
+  font-size: 18px;
 }
 
 .InfoBlock::-webkit-scrollbar {

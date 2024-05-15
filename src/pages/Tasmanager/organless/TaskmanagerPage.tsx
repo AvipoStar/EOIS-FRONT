@@ -37,7 +37,8 @@ export const TaskmanagerPage = () => {
   const [board4edit, setboard4edit] = useState<IBoard | null>(null);
 
   useEffect(() => {
-    fetchBoards(selectedFirms.map((f: any) => (f.value ? f.value : f)));
+    if (selectedFirms.length)
+      fetchBoards(selectedFirms?.map((f: any) => (f.value ? f.value : f)));
   }, [selectedFirms]);
 
   useEffect(() => {
@@ -61,8 +62,15 @@ export const TaskmanagerPage = () => {
   }, [selectedBoard]);
 
   useEffect(() => {
-    if (userInfo.roleId == 2) setselectedFirms(userInfo.firmId);
-    else setselectedFirms(firms.map((f: any) => f.id));
+    if (userInfo.roleId == 2) {
+      setselectedFirms([userInfo.firmId]);
+    }
+  }, [userInfo]);
+
+  useEffect(() => {
+    if (userInfo.roleId != 2) {
+      setselectedFirms(firms.map((f: any) => f.id));
+    }
   }, [firms]);
 
   const onDeleteClick = (board: IBoard) => {

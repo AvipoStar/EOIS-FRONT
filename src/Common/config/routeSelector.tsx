@@ -16,7 +16,6 @@ import SessionsIcon from "../assets/icons/sessions.svg";
 import TasksIcon from "../assets/icons/tasks.svg";
 import StudentIcon from "../assets/icons/student.svg";
 
-
 import LKIcon_dark from "../assets/icons/LK-dark.svg";
 import ProjectsIcon_dark from "../assets/icons/projects-dark.svg";
 import CuratorsIcon_dark from "../assets/icons/curators-dark.svg";
@@ -25,8 +24,8 @@ import SessionsIcon_dark from "../assets/icons/sessions-dark.svg";
 import TasksIcon_dark from "../assets/icons/tasks-dark.svg";
 import StudentIcon_dark from "../assets/icons/student-dark.svg";
 
-
 import ExitIcon from "../assets/icons/exit.svg";
+import { StudentsPage } from "../../pages/Students/organless/StudentsPage";
 
 export interface IRoute {
   id?: number;
@@ -100,7 +99,7 @@ export const routes: IRoute[] = [
     path: paths.Students,
     icon: StudentIcon,
     icon_dark: StudentIcon_dark,
-    element: <TaskmanagerPage />,
+    element: <StudentsPage />,
   },
   {
     id: 10,

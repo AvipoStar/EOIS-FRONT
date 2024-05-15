@@ -43,6 +43,12 @@ export const PaymentsPage = () => {
   const [reloadPayments, setReloadPayments] = useState(false);
 
   useEffect(() => {
+    if (userInfo.roleId == 2) {
+      handleFilterChange(userInfo.id, "students");
+    }
+  }, [userInfo]);
+
+  useEffect(() => {
     const firmIds =
       selectedFilter?.firms.length > 0
         ? selectedFilter?.firms.map((f: any) => f)
@@ -82,7 +88,9 @@ export const PaymentsPage = () => {
   }, [reloadPayments]);
 
   const handleFilterChange = (event: any, field: "firms" | "students") => {
-    const values = event.length ? event.map((e: any) => e.value) : event.value;
+    const values = event.length
+      ? event.map((e: any) => e.value ?? e)
+      : event.value ?? event;
     setSelectedFilter((prevFilter: any) => {
       return {
         ...prevFilter,
@@ -101,55 +109,62 @@ export const PaymentsPage = () => {
           setReloadPayments={setReloadPayments}
         />
       )}
-      <FilterBlock
-        showCreateButton={userInfo.roleId != 2}
-        setShowCreateModal={() => setShowCreateModal(true)}
-        buttonText="Новое событие"
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            alignItems: "stretch",
-            gap: "5px",
-          }}
+      {userInfo.roleId != 2 && (
+        <FilterBlock
+          showCreateButton={userInfo.roleId != 2}
+          setShowCreateModal={() => setShowCreateModal(true)}
+          buttonText="Новое событие"
         >
-          <MySelect
-            isMulty={true}
-            options={firmsOnCurrentSession}
-            onChange={(e: any) => handleFilterChange(e, "firms")}
-            itemKey="id"
-            label="number"
-            placeholder="Фирмы"
-            width="40%"
-          />
-          <MySelect
-            isMulty={false}
-            options={convertedStudents}
-            onChange={(e: any) => handleFilterChange(e, "students")}
-            itemKey="id"
-            label="fio"
-            placeholder="Участники"
-          />
-        </div>
-      </FilterBlock>
-      <div style={{display: 'flex', flexDirection: 'row', width: '100%', gap: '15px'}}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              alignItems: "stretch",
+              gap: "5px",
+            }}
+          >
+            <MySelect
+              isMulty={true}
+              options={firmsOnCurrentSession}
+              onChange={(e: any) => handleFilterChange(e, "firms")}
+              itemKey="id"
+              label="number"
+              placeholder="Фирмы"
+              width="40%"
+            />
+            <MySelect
+              isMulty={false}
+              options={convertedStudents}
+              onChange={(e: any) => handleFilterChange(e, "students")}
+              itemKey="id"
+              label="fio"
+              placeholder="Участники"
+            />
+          </div>
+        </FilterBlock>
+      )}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: "100%",
+          gap: "15px",
+        }}
+      >
         <InfoBlock title={"Штрафы и поощрения"}>
-        <MyPlot data={eventsForUser} />
-      </InfoBlock>
-      <div style={{width: '30%'}}>
-         <InfoBlock title={"Список штрафов и поощрений"}>
-        <MyTable
-          list={eventsForUser}
-          onDoubleClick={(e: IPayment) => setselectedEvent(e)}
-          field={["description", "amount"]}
-        />
-      </InfoBlock>
+          <MyPlot data={eventsForUser} />
+        </InfoBlock>
+        <div style={{ width: "30%" }}>
+          <InfoBlock title={"Список штрафов и поощрений"}>
+            <MyTable
+              list={eventsForUser}
+              onDoubleClick={(e: IPayment) => setselectedEvent(e)}
+              field={["description", "amount"]}
+            />
+          </InfoBlock>
+        </div>
       </div>
-     
-      </div>
-      
     </Page>
   );
 };

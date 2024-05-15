@@ -7,6 +7,7 @@ interface IMyInput {
   type?: string;
   enterOnly?: boolean;
   onKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  placeholder?: string;
 }
 
 export const MyInput = (params: IMyInput) => {
@@ -26,6 +27,7 @@ export const MyInput = (params: IMyInput) => {
       }
       type={params.type ? params.type : "text"}
       onKeyDown={handleKeyDown}
+      placeholder={params.placeholder ?? ""}
     />
   );
 };
