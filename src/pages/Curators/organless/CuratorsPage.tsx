@@ -14,6 +14,7 @@ import { IUser } from "../../LK/organless/LKPage";
 import { useDebounse } from "../../../Common/hooks/useDebounce";
 import { PerfectTable } from "../../../ui/PerfectTable/organelles/PerfectTable";
 import { getTableSettings } from "../logic/getTableSettings";
+import { UserGallery } from "../../../ui/Gallery/organless/UserGallery";
 
 export const CuratorsPage = () => {
   const userInfo = useSelector((state: any) => state.userInfo);
@@ -71,7 +72,7 @@ export const CuratorsPage = () => {
         />
       )}
       <FilterBlock
-        showCreateButton={userInfo.roleId == 1}
+        showCreateButton={userInfo.roleId != 2}
         setShowCreateModal={() => setShowCreateModal(true)}
         buttonText="Новый куратор"
       >
@@ -90,18 +91,18 @@ export const CuratorsPage = () => {
           placeholder="Профиль"
         />
       </FilterBlock>
-      <InfoBlock title={"Кураторы"}>
-        <PerfectTable
+      {/* <InfoBlock title={"Кураторы"}> */}
+        <UserGallery
+          array={curators}
+          onDoubliClick={(e: any) => setSelectedCurator(e)}
+        />
+        {/* <PerfectTable
           nameTable={"Кураторы"}
           table={curators}
           tableSettings={getTableSettings(curators, profiles)}
-        />
-        {/* <MyTable
-          list={curators}
-          onDoubleClick={(e: IUser) => setSelectedCurator(e)}
-          field={['surname', 'name', 'patronymic']}
+          forDoubleClick={(e: any) => setSelectedCurator(e)}
         /> */}
-      </InfoBlock>
+      {/* </InfoBlock> */}
     </Page>
   );
 };

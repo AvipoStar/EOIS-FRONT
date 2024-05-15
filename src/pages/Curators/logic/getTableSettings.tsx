@@ -6,10 +6,14 @@ export const getTableSettings = (
   ) => {
     return [
       {
+        label: "№",
+        key:'id'
+      },
+      {
         label: "Фото",
         key: "photoPath",
         unusualView: function (value: any): any {
-          return <img src={`${baseURL}${value}`} style={{width: '70px'}}/>
+          return <img src={`${baseURL}${value}`} style={{width: '70px', borderRadius:'50%'}}/>
         },
       },
       {

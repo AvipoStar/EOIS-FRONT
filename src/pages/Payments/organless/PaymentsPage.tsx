@@ -102,7 +102,7 @@ export const PaymentsPage = () => {
         />
       )}
       <FilterBlock
-        showCreateButton={userInfo.roleId == 1}
+        showCreateButton={userInfo.roleId != 2}
         setShowCreateModal={() => setShowCreateModal(true)}
         buttonText="Новое событие"
       >
@@ -134,16 +134,22 @@ export const PaymentsPage = () => {
           />
         </div>
       </FilterBlock>
-      <InfoBlock title={"Штрафы и поощрения"}>
+      <div style={{display: 'flex', flexDirection: 'row', width: '100%', gap: '15px'}}>
+        <InfoBlock title={"Штрафы и поощрения"}>
         <MyPlot data={eventsForUser} />
       </InfoBlock>
-      <InfoBlock title={"Список штрафов и поощрений"}>
+      <div style={{width: '30%'}}>
+         <InfoBlock title={"Список штрафов и поощрений"}>
         <MyTable
           list={eventsForUser}
           onDoubleClick={(e: IPayment) => setselectedEvent(e)}
           field={["description", "amount"]}
         />
       </InfoBlock>
+      </div>
+     
+      </div>
+      
     </Page>
   );
 };

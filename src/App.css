@@ -63,7 +63,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  padding: 10px;
+  padding: 5px;
   font-size: 20px;
 }
 
@@ -92,4 +92,16 @@
 }
 .ButtonSave:hover {
   background-color: var(--color-main-green-hover);
+}
+
+body::-webkit-scrollbar {
+  width: 10px;               /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: var(--color-main-grey-light);        /* цвет дорожки */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-main-grey-dark);    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+  border: 3px solid var(--color-main-grey-light);  /* padding вокруг плашки */
 }

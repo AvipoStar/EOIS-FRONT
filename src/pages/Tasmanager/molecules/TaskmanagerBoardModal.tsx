@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MyModal } from "../../../ui/MyModal/organless/MyModal";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
 import { MySelect } from "../../../ui/MySelect/organless/MySelect";
@@ -9,6 +9,7 @@ import { MyColorPicker } from "../../../ui/MyColorPeacker/organless/MyColorPeack
 import { setBoard } from "../logic/setBoard";
 
 interface ITaskmanagerBoardModal {
+  board: IBoard | null;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   setReloadBoards: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -18,6 +19,10 @@ export const TaskmanagerBoardModal = (params: ITaskmanagerBoardModal) => {
     (state: any) => state.firmsOnCurrentSession
   );
   const [editedBoard, setEditedBoard] = useState<IBoard | null>(null);
+
+  useEffect(() => {
+    if (params.board) setEditedBoard(params.board);
+  }, [params.board]);
 
   const handleChange = (selectedOption: any, fieldName: string) => {
     setEditedBoard((prev: any) => ({
@@ -29,6 +34,7 @@ export const TaskmanagerBoardModal = (params: ITaskmanagerBoardModal) => {
   const saveBoard = async () => {
     if (editedBoard) {
       const result = await setBoard(editedBoard);
+      console.log("result", result);
       if (result) {
         params.setReloadBoards(true);
         params.setShow(false);
@@ -39,8 +45,12 @@ export const TaskmanagerBoardModal = (params: ITaskmanagerBoardModal) => {
   return (
     <MyModal
       setShow={params.setShow}
-      title={`Создание доски`}
-      editOrSave={"save"}
+      title={
+        params.board?.id
+          ? `Редактирование доски ${params.board.id}`
+          : `Создание доски`
+      }
+      editOrSave={params.board?.id ? "edit" : "save"}
       handleSave={saveBoard}
     >
       <ContainerWithLabel title={"Фирма"} darkTheme>
@@ -51,6 +61,9 @@ export const TaskmanagerBoardModal = (params: ITaskmanagerBoardModal) => {
           label="number"
           placeholder="Фирма"
           onChange={(e: any) => handleChange(e, "firm")}
+          defaultValues={firmsOnCurrentSession
+            .filter((e: any) => e.id === params.board?.firm)
+            .map((e: any) => ({ value: e.id, label: e.name }))}
         />
       </ContainerWithLabel>
       <ContainerWithLabel title={"Название"} darkTheme>

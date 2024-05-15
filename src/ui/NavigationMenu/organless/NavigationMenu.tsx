@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUserInfo } from "../../../Common/redux/redusers/dataSlice";
 import { routes } from "../../../Common/config/routeSelector";
 import { getMenu } from "../../../API/getMenu";
-
 interface INavigationMenu {
   userRoleId: number;
 }

@@ -11,6 +11,8 @@ import { ProjectsModal } from "./ProjectsModal";
 import { MyInput } from "../../../ui/MyInput/organless/MyInput";
 import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/ContainerWithLabel";
 import { useDebounse } from "../../../Common/hooks/useDebounce";
+import { PerfectTable } from "../../../ui/PerfectTable/organelles/PerfectTable";
+import { getTableSettings } from "../logic/getTableSettings";
 
 export interface IProject {
   id: number;
@@ -78,7 +80,7 @@ export const ProjectsPage = () => {
         />
       )}
       <FilterBlock
-        showCreateButton={userInfo.roleId == 1}
+        showCreateButton={userInfo.roleId != 2}
         setShowCreateModal={() => setShowCreateModal(true)}
         buttonText="Новый проект"
       >
@@ -98,10 +100,11 @@ export const ProjectsPage = () => {
         />
       </FilterBlock>
       <InfoBlock title={"Проекты"}>
-        <MyTable
-          list={projects}
-          onDoubleClick={(e: IProject) => setSelectedProject(e)}
-          field="nameProject"
+        <PerfectTable
+          nameTable={"Кураторы"}
+          table={projects}
+          tableSettings={getTableSettings(directions)}
+          forDoubleClick={(e: any) => setSelectedProject(e)}
         />
       </InfoBlock>
     </Page>

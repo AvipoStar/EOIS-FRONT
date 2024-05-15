@@ -6,14 +6,14 @@
   padding: 15px;
   align-items: flex-start;
   gap: 15px;
-  width: 100%;
-  max-width: 1300px;
+  width: 99%;
+  overflow: auto;
 }
 
 .InfoBlock__title {
   width: 100%;
   text-align: left;
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .InfoBlock__content {
@@ -22,4 +22,16 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
+}
+
+.InfoBlock::-webkit-scrollbar {
+  width: 10px; /* ширина scrollbar */
+}
+.InfoBlock::-webkit-scrollbar-track {
+  background: var(--color-main-grey-light); /* цвет дорожки */
+}
+.InfoBlock::-webkit-scrollbar-thumb {
+  background-color: var(--color-main-grey-dark); /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+  border: 3px solid var(--color-main-grey-light); /* padding вокруг плашки */
 }

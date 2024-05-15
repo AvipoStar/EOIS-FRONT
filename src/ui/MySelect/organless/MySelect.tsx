@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import Select from "react-select";
-import "../styles/MySelect.css";
 interface IMySelect {
   isMulty: boolean;
   options: any[];
@@ -27,6 +27,7 @@ export const MySelect = (params: IMySelect) => {
       ...provided,
       backgroundColor: "#D9D9D9",
       textAlign: "left",
+      BorderAll: "1px solid var(--color-main-grey-dark)"
     }),
     option: (provided: any, state: any) => ({
       ...provided,
@@ -41,10 +42,14 @@ export const MySelect = (params: IMySelect) => {
     }),
   };
 
+  useEffect(() => {
+    console.log('params.defaultValues', params.defaultValues)
+  }, [params.defaultValues]);
+
   return (
     <div style={{ width: params.width ?? "100%" }}>
       <Select
-        className="Select"
+        // classNamePrefix="Select"
         styles={customStyles}
         closeMenuOnSelect={!params.isMulty}
         defaultValue={params.defaultValues ?? []}
@@ -54,11 +59,11 @@ export const MySelect = (params: IMySelect) => {
         placeholder={params.placeholder}
         isSearchable={true}
         value={params?.selected}
-        menuPortalTarget={document.body}
-        menuPosition="fixed"
+        // menuPosition="fixed"
         noOptionsMessage={() => "Нет данных"}
         loadingMessage={() => "Поиск"}
       />
     </div>
   );
 };
+

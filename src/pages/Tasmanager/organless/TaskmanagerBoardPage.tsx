@@ -9,8 +9,7 @@ import { setColumn } from "../logic/setColumn";
 import dragIcon from "../../../Common/assets/icons/dragLight.svg";
 import { moveList } from "../logic/moveList";
 import { IBoard } from "../../../ui/TaskmanagerBoard/organless/TaskmanagerBoard";
-import { FilterBar } from "../atoms/filterBar/filterBar";
-import { MyTable } from "../../../ui/MyTable/organless/MyTable";
+import { FilterBar } from "../atoms/filterBar";
 import { PerfectTable } from "../../../ui/PerfectTable/organelles/PerfectTable";
 import { getTasksTableSettings } from "../logic/getTableSettings";
 import { useSelector } from "react-redux";
@@ -23,6 +22,7 @@ interface IList {
 }
 
 export interface ITask {
+  executors: number[];
   id: number;
   name: string;
   discription: string; // Исправлено на description
@@ -114,18 +114,29 @@ export const TaskmanagerBoardPage = () => {
     setnewColumn({ ...newColumn, [field]: value });
   };
 
-  useEffect(() => {
-    const createColumn = async () => {
-      const column = {
-        name: newColumn?.name ? newColumn?.name : "",
-        idBoard: Number(id),
-        serialNumber: tasks.length + 1,
-      };
-
-      const result = await setColumn(column);
+  const createColumn = async () => {
+    const column = {
+      name: newColumn?.name ? newColumn?.name : "",
+      idBoard: Number(id),
+      serialNumber: tasks.length + 1,
     };
-    if (newColumn?.name && newColumn?.name.length !== 0) createColumn();
-  }, [newColumn?.name]);
+
+    const result = await setColumn(column);
+    if (result) {
+      fetchTasks(id);
+      setnewColumnFlag(false);
+    }
+  };
+
+  const handleNewColumnKeyPress = (event: any) => {
+    if (
+      event.key === "Enter" &&
+      newColumn?.name &&
+      newColumn?.name.length !== 0
+    ) {
+      createColumn();
+    }
+  };
 
   const handleDragStart = (
     event: React.DragEvent<HTMLDivElement>,
@@ -166,17 +177,37 @@ export const TaskmanagerBoardPage = () => {
     }
   };
 
+  const handleNewTaskClick = (columnId?: number) => {
+    if (columnId) {
+      seteditedTask((prevState: any) => ({
+        ...prevState,
+        idList: columnId,
+      }));
+    }
+    setshowTaskModal(true);
+  };
+
+  const handleHideModal = () => {
+    seteditedTask(null);
+    setshowTaskModal(false);
+  };
+
   return (
     <div className="TaskmanagerShell">
       <div className="ActionsBar">
         {boardData?.name}
         <FilterBar setviewMode={setviewMode} />
       </div>
-      <div className="TrelloLikePage__Boards" style={viewMode == 0 ? {flexDirection: 'row'} : {flexDirection: 'column'}}>
+      <div
+        className="TrelloLikePage__Boards"
+        style={
+          viewMode == 0 ? { flexDirection: "row" } : { flexDirection: "column" }
+        }
+      >
         {showTaskModal && (
           <TaskmanagerTaskModal
             task={editedTask}
-            setShow={setshowTaskModal}
+            setShow={handleHideModal}
             setReloadBoards={setreloadTasks}
           />
         )}
@@ -201,7 +232,7 @@ export const TaskmanagerBoardPage = () => {
                 </div>
                 <div
                   className="NewTaskButton"
-                  onClick={() => handleEditTask(null)}
+                  onClick={() => handleNewTaskClick(list.id)}
                 >
                   Новая задача
                 </div>
@@ -229,6 +260,7 @@ export const TaskmanagerBoardPage = () => {
                 <MyInput
                   value={newColumn?.name}
                   setValue={(e) => setNewColumnData("name", e)}
+                  onKeyPress={handleNewColumnKeyPress}
                   enterOnly
                 />
               )}
@@ -241,12 +273,6 @@ export const TaskmanagerBoardPage = () => {
               table={tasksList}
               tableSettings={getTasksTableSettings(priorities)}
             />
-            {/* <MyTable
-              list={tasksList}
-              onDoubleClick={handleEditTask}
-              field={["name", "priority"]}
-              separator=","
-            /> */}
           </>
         )}
       </div>

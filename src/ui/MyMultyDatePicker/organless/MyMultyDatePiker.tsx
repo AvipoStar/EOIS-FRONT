@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { DateRangePicker } from "react-date-range";
+import { DateRange } from "react-date-range";
+import '../styles/MyMultyDatePiker.css'
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
@@ -10,15 +11,25 @@ interface IDatePiker {
 }
 
 export const MyMultyDatePiker = (params: IDatePiker) => {
-  const [date, setdate] = useState<any | null>(null);
-
-  useEffect(() => {
-    setdate({ ...date, dateStart: params.dateStart, dateEnd: params.dateEnd });
-  }, [params]);
+  const [selection, setSelection] = useState({
+    startDate: new Date(params.dateStart),
+    endDate: new Date(params.dateEnd),
+    key: "selection",
+  });
 
   const handleSelect = (ranges: any) => {
-    console.log("ranges", ranges);
+    setSelection(ranges.selection);
+    params.setDates(ranges.selection.startDate, ranges.selection.endDate);
   };
 
-  return <DateRangePicker ranges={[date]} onChange={handleSelect} />;
+  return (
+    <DateRange
+      editableDateInputs={true}
+      moveRangeOnFirstSelection={false}
+      ranges={[selection]}
+      onChange={handleSelect}
+      showMonthAndYearPickers={false}
+      className="custom-date-range" 
+    />
+  );
 };

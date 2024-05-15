@@ -11,6 +11,7 @@ import {
   setRoles,
   setUserInfo,
   setTaskPriorities,
+  setSessions,
 } from "./Common/redux/redusers/dataSlice";
 import { useEffect } from "react";
 import { getProfiles } from "./API/getProfiles";
@@ -24,6 +25,7 @@ import { getFirmsOnCurrentSession } from "./API/getFirmsOnCurrentSession";
 import { routes } from "./Common/config/routeSelector";
 import { TaskmanagerBoardPage } from "./pages/Tasmanager/organless/TaskmanagerBoardPage";
 import { getTaskPriorities } from "./API/getTaskPriorities";
+import { getSessions } from "./API/getSessions";
 
 export const App = () => {
   const navigate = useNavigate();
@@ -89,6 +91,11 @@ export const App = () => {
     dispatch(setTaskPriorities(priorities));
   };
 
+  const fetchAllSessions = async () => {
+    const priorities = await getSessions();
+    dispatch(setSessions(priorities));
+  };
+
   useEffect(() => {
     if (userInfo.id) {
       fetchProfiles();
@@ -97,6 +104,7 @@ export const App = () => {
       fetchEventTypes();
       fetchFirmsOnCurrentSession();
       fetchTaskmanagerPriorities();
+      fetchAllSessions();
       navigate("/LK");
     }
   }, [userInfo]);
@@ -104,7 +112,12 @@ export const App = () => {
   return (
     <div className="App">
       {userInfo?.id && <Header />}
-      <div className="MainPage" style={ {justifyContent: location.pathname === '/auth' ? 'center' : 'initial' }} >
+      <div
+        className="MainPage"
+        style={{
+          justifyContent: location.pathname === "/auth" ? "center" : "initial",
+        }}
+      >
         {userInfo?.id && <NavigationMenu userRoleId={userInfo.id} />}
         <Routes>
           <Route

@@ -1,5 +1,4 @@
-
-.UserInfoBlock{
+.UserInfoBlock {
   display: flex;
   padding: 1%;
   flex-direction: column;
@@ -7,3 +6,9 @@
   width: 98%;
 }
 
+.QuestionIcon {
+  position: fixed;
+  top: 7px;
+  right: 30px;
+  cursor: pointer;
+}

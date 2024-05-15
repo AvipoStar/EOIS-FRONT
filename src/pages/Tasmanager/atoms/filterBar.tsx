@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MySelect } from "../../../../ui/MySelect/organless/MySelect";
+import { MySelect } from "../../../ui/MySelect/organless/MySelect";
 
 const viewModes = [
   { id: 0, name: "Доска" },

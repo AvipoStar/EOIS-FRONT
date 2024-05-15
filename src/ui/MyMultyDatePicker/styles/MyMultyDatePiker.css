@@ -1,0 +1,47 @@
+.custom-date-range {
+  background-color: var(--color-main-grey-light);
+  border: 1px solid var(--color-main-grey);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.custom-date-range .rdrCalendarWrapper .rdrDateRangeWrapper{
+    background-color: var(--color-main-grey-light);
+}
+
+.custom-date-range .rdrDateDisplayWrapper {
+  background-color: var(--color-main-grey-light);
+}
+
+.custom-date-range .rdrDateInput .rdrDateDisplayItem
+{
+    background-color: var(--color-main-grey-light);
+}
+
+.custom-date-range .rdrDateRangeWrapper {
+  /* display: flex;
+    justify-content: space-between; */
+}
+
+.custom-date-range .rdrDateDisplayItem {
+  display: flex;
+  color: #333;
+}
+
+.rdrMonths {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-date-range .rdrWeekDays {
+    width: 100%;
+}
+
+.custom-date-range .rdrWeekDay{
+    width: calc(100% / 7);
+}
+
+.custom-date-range .rdrDays {
+  width: 100%;
+}

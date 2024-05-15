@@ -8,6 +8,7 @@ export const paths = {
   Sessions: "/sessions",
   Taskmanager: "/tasks",
   Demands: "/demands",
+  Students: "/students",
 };
 
 // export const URL_ON_SERVER = ''

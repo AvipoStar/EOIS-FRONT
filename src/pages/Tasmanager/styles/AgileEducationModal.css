@@ -1,0 +1,42 @@
+.MyCenterModal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AgileEducationModalBackground {
+  background-color: black;
+  opacity: 80%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  z-index: 10;
+  width: 100%;
+}
+.AgileEducationModalForm {
+  width: 80%;
+  background-color: var(--color-main-grey-light);
+  color: var(--color-main-grey-dark);
+  padding: 3%;
+  position: fixed;
+  border-radius: 10px;
+  z-index: 11;
+}
+
+.AgileEducationModalFormTitle {
+  text-align: left;
+}
+.AgileEducationModalFormText {
+  text-align: center;
+}
+
+.AgileEducationModalFormActiveText{
+    color: var(--color-main-red);
+}

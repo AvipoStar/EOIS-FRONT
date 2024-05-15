@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { Page } from "../../../ui/Page/organless/Page";
 import { InfoBlock } from "../../../ui/InfoBlock/organless/InfoBlock";
-import { MyTable } from "../../../ui/MyTable/organless/MyTable";
 import { SessionsModal } from "./SessionsModal";
 import { getSessions } from "../logic/getSessions";
 import { FilterBlock } from "../../../ui/FilterBlock/organless/FilterBlock";
@@ -10,6 +9,8 @@ import { ContainerWithLabel } from "../../../ui/ContainerWithLabel/organless/Con
 import { MyInput } from "../../../ui/MyInput/organless/MyInput";
 import { useSelector } from "react-redux";
 import { useDebounse } from "../../../Common/hooks/useDebounce";
+import { PerfectTable } from "../../../ui/PerfectTable/organelles/PerfectTable";
+import { getTableSettings } from "../logic/getTableSettings";
 
 export interface ISession {
   id: number;
@@ -64,7 +65,7 @@ export const SessionsPage = () => {
         />
       )}
       <FilterBlock
-        showCreateButton={userInfo.roleId == 1}
+        showCreateButton={userInfo.roleId != 2}
         setShowCreateModal={() => setShowCreateModal(true)}
         buttonText="Новая сессия"
       >
@@ -76,12 +77,18 @@ export const SessionsPage = () => {
         </ContainerWithLabel>
       </FilterBlock>
       <InfoBlock title={"Сессии"}>
-        <MyTable
+      <PerfectTable
+          nameTable={"Кураторы"}
+          table={sessions}
+          tableSettings={getTableSettings(sessions)}
+          forDoubleClick={(e: any) => setSelectedSessions(e)}
+        />
+        {/* <MyTable
           list={sessions}
           onDoubleClick={(e: ISession) => setSelectedSessions(e)}
           field={["place", "dateStart", "dateEnd"]}
           separator="-"
-        />
+        /> */}
       </InfoBlock>
     </Page>
   );

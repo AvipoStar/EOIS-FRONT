@@ -14,6 +14,8 @@ import CuratorsIcon from "../assets/icons/curators.svg";
 import PaymentsIcon from "../assets/icons/Bukazoid.svg";
 import SessionsIcon from "../assets/icons/sessions.svg";
 import TasksIcon from "../assets/icons/tasks.svg";
+import StudentIcon from "../assets/icons/student.svg";
+
 
 import LKIcon_dark from "../assets/icons/LK-dark.svg";
 import ProjectsIcon_dark from "../assets/icons/projects-dark.svg";
@@ -21,6 +23,8 @@ import CuratorsIcon_dark from "../assets/icons/curators-dark.svg";
 import PaymentsIcon_dark from "../assets/icons/Bukazoid-dark.svg";
 import SessionsIcon_dark from "../assets/icons/sessions-dark.svg";
 import TasksIcon_dark from "../assets/icons/tasks-dark.svg";
+import StudentIcon_dark from "../assets/icons/student-dark.svg";
+
 
 import ExitIcon from "../assets/icons/exit.svg";
 
@@ -74,8 +78,16 @@ export const routes: IRoute[] = [
     icon_dark: SessionsIcon_dark,
     element: <SessionsPage />,
   },
+  {
+    id: 6,
+    name: "Задачи",
+    path: paths.Taskmanager,
+    icon: TasksIcon,
+    icon_dark: TasksIcon_dark,
+    element: <TaskmanagerPage />,
+  },
   // {
-  //   id: 6,
+  //   id: 7,
   //   name: "Заявки",
   //   path: paths.Demands,
   //   icon: DemandsIcon,
@@ -83,11 +95,11 @@ export const routes: IRoute[] = [
   //   // element: <TaskmanagerPage />,
   // },
   {
-    id: 7,
-    name: "Задачи",
-    path: paths.Taskmanager,
-    icon: TasksIcon,
-    icon_dark: TasksIcon_dark,
+    id: 8,
+    name: "Участники",
+    path: paths.Students,
+    icon: StudentIcon,
+    icon_dark: StudentIcon_dark,
     element: <TaskmanagerPage />,
   },
   {

@@ -1,12 +1,11 @@
 .FilterBlock {
-  width: 100%;
+  width: 99%;
   display: flex;
   background-color: var(--color-main-grey);
   border-radius: 10px;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 10px;
-  max-width: 1300px;
+  padding: 5px 15px;
 }
 
 .Closed {

@@ -11,6 +11,9 @@ import { LKAttachModal } from "./LKAttachModal";
 import { checkUserFirmRelation } from "../logic/checkUserFirmRelation";
 import { getUserInfo } from "../../../API/getUserInfo";
 import { setUserInfo } from "../../../Common/redux/redusers/dataSlice";
+import { PerfectTable } from "../../../ui/PerfectTable/organelles/PerfectTable";
+import { getUserSessions } from "../logic/getUserSessions";
+import { getSessionsTableSettings } from "../logic/getSessionsTableSettings";
 
 export interface IUser {
   id: number | null;
@@ -34,6 +37,7 @@ export const LKPage = () => {
   const userInfo = useSelector((state: any) => state.userInfo);
   const roles = useSelector((state: any) => state.roles);
   const profiles = useSelector((state: any) => state.profiles);
+  const sessions = useSelector((state: any) => state.sessions);
 
   const [showModalEditProfile, setshowModalEditProfile] = useState(false);
   const [showAttachModal, setshowAttachModal] = useState(false);
@@ -41,8 +45,13 @@ export const LKPage = () => {
 
   const [reloadPage, setreloadPage] = useState(false);
 
+  const [userSessions, setuserSessions] = useState<any[]>([]);
+
   useEffect(() => {
-    fetchUserFirmRelation(userInfo.id);
+    if (userInfo.roleId == 2) {
+      fetchUserFirmRelation(userInfo.id);
+      fetchUserSessions(userInfo.id);
+    }
   }, [userInfo.id]);
 
   const handleEditClick = () => {
@@ -56,6 +65,11 @@ export const LKPage = () => {
   const fetchUserFirmRelation = async (userId: number) => {
     const response = await checkUserFirmRelation(userId);
     setuserFirmInfo(response);
+
+    // Создаем копию объекта userInfo с возможностью расширения
+    let newUserInfo = { ...userInfo };
+    newUserInfo.firmId = response?.firm_number;
+    dispatch(setUserInfo(newUserInfo));
   };
 
   useEffect(() => {
@@ -68,6 +82,11 @@ export const LKPage = () => {
     };
     reload();
   }, [reloadPage, userInfo.id]);
+
+  const fetchUserSessions = async (userId: number) => {
+    const result = await getUserSessions(userId);
+    if (result) setuserSessions(result);
+  };
 
   return (
     <>
@@ -109,7 +128,7 @@ export const LKPage = () => {
               >
                 Редактирование профиля
               </div>
-              {!userFirmInfo && userInfo.roleId != 1 && (
+              {!userFirmInfo && userInfo.roleId == 2 && (
                 <div
                   className="UserSubInfoItemm__EditProfile"
                   onClick={handleAttachClick}
@@ -120,7 +139,7 @@ export const LKPage = () => {
             </div>
           </div>
         </div>
-        {userInfo.roleId != 1 && (
+        {userInfo.roleId == 2 && (
           <>
             <div className="CurrentSessionUserInfo">
               <InfoBlock title="Текущий баланс">
@@ -149,7 +168,13 @@ export const LKPage = () => {
               </InfoBlock>
             </div>
 
-            <div className="PastSessionsInfo"></div>
+            <InfoBlock title={"Прошлые смены"}>
+              <PerfectTable
+                nameTable={"Прошлые смены"}
+                table={userSessions}
+                tableSettings={getSessionsTableSettings(profiles, sessions)}
+              />
+            </InfoBlock>
           </>
         )}
       </Page>

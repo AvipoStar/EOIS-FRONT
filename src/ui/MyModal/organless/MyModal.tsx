@@ -21,9 +21,9 @@ export const MyModal = (params: MyModalProps) => {
 
   useEffect(() => {
     document.body.classList.add('modal-open');
-    document.querySelector('.MyModal')?.classList.add('open'); // Добавляем класс "open" при открытии модального окна
+    document.querySelector('.MyModal__Background__Children')?.classList.add('open'); // Добавляем класс "open" при открытии модального окна
     return () => {
-      document.querySelector('.MyModal')?.classList.remove('open'); // Удаляем класс "open" при закрытии модального окна
+      document.querySelector('.MyModal__Background__Children')?.classList.remove('open'); // Удаляем класс "open" при закрытии модального окна
     };
   }, []);
 

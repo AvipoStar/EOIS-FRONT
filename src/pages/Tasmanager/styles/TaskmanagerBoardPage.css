@@ -72,3 +72,28 @@
   padding: 5px 10px;
   gap: 15px;
 }
+
+.TaskmanagerColumn::-webkit-scrollbar {
+  width: 10px; /* ширина scrollbar */
+}
+.TaskmanagerColumn::-webkit-scrollbar-track {
+  background: var(--color-main-grey-light); /* цвет дорожки */
+}
+.TaskmanagerColumn::-webkit-scrollbar-thumb {
+  background-color: var(--color-main-grey-dark); /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+  border: 3px solid var(--color-main-grey-light); /* padding вокруг плашки */
+}
+
+.TrelloLikePage__Boards::-webkit-scrollbar {
+  /* width: 10px; ширина scrollbar */
+  height: 10px;
+}
+.TrelloLikePage__Boards::-webkit-scrollbar-track {
+  background: var(--color-main-grey-light); /* цвет дорожки */
+}
+.TrelloLikePage__Boards::-webkit-scrollbar-thumb {
+  background-color: var(--color-main-grey-dark); /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+  border: 3px solid var(--color-main-grey-light); /* padding вокруг плашки */
+}
