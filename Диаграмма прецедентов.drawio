@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-05-18T18:00:09.404Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 YaBrowser/24.4.0.0 Safari/537.36" etag="q9iE8x47fTuDmSDuRa-2" version="24.4.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-19T06:54:19.197Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 YaBrowser/24.4.0.0 Safari/537.36" etag="LAqR-BdJDCgJFkrxUsWM" version="24.4.4" type="github">
   <diagram name="Страница — 1" id="JHyc7OgReh5onTn7h_LJ">
-    <mxGraphModel dx="1050" dy="639" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="521" dy="626" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -31,14 +31,32 @@
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-12" value="Создание куратора" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="331" y="254" width="140" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-13" value="Редактирование куратора" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="496" y="256" width="140" height="70" as="geometry" />
-        </mxCell>
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-14" value="&lt;div&gt;Куратор&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
-          <mxGeometry x="135" y="415" width="30" height="60" as="geometry" />
+          <mxGeometry x="65" y="348" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-15" value="&lt;div&gt;Админ&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
-          <mxGeometry x="332" y="423" width="30" height="60" as="geometry" />
+          <mxGeometry x="65" y="505" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-16" value="Просмотр списка смен" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="167" y="350" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-17" value="Создание смен" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="348" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-18" value="Редактирование смен" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="350" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-19" value="Просмотр списка задач" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="169" y="550" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-20" value="Создание задач" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="332" y="548" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-21" value="Редактирование задач" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="497" y="550" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-22" value="Просмотр списка участников" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="665" width="140" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
