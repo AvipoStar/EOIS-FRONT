@@ -62,8 +62,8 @@ export const TaskmanagerBoardModal = (params: ITaskmanagerBoardModal) => {
           placeholder="Фирма"
           onChange={(e: any) => handleChange(e, "firm")}
           defaultValues={firmsOnCurrentSession
-            .filter((e: any) => e.id === params.board?.firm)
-            .map((e: any) => ({ value: e.id, label: e.name }))}
+            .filter((e: any) => e.id == params.board?.firm)
+            .map((e: any) => ({ value: e.id, label: e.number }))}
         />
       </ContainerWithLabel>
       <ContainerWithLabel title={"Название"} darkTheme>

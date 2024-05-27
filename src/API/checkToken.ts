@@ -7,7 +7,7 @@ export const checkToken = async (token: string) => {
     .post("authReg/checkToken", { token: token })
     .then((res) => {
       response = res.data;
-      toast.success("Вход выполнен успешно");
+      // toast.success("Вход выполнен успешно");
     })
     .catch((err) => {
       toast.error(err.response.data.detail);

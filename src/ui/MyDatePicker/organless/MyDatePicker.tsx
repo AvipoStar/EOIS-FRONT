@@ -14,11 +14,11 @@ export const MyDatePicker = (params: IDatePicker) => {
   return (
     <input
       className='MyDatePicker'
-      type="datetime-local" // Изменяем тип на datetime-local
+      type="datetime-local" 
       value={date}
       onChange={handleDateChange}
-      max="9999-12-31T23:59" // Максимальная дата и время
-      min="1000-01-01T00:00" // Минимальная дата и время
+      max="9999-12-31T23:59" 
+      min="1000-01-01T00:00" 
     />
   );
 };

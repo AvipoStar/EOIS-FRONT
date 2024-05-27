@@ -56,6 +56,10 @@ export const TaskmanagerBoardPage = () => {
   const [tasksList, settasksList] = useState<ITask[]>([]);
 
   useEffect(() => {
+    console.log('tasksList', tasksList)
+  }, [tasksList]);
+
+  useEffect(() => {
     fetchTasks(id);
     setreloadTasks(false);
   }, [id, reloadTasks]);
@@ -191,6 +195,7 @@ export const TaskmanagerBoardPage = () => {
     seteditedTask(null);
     setshowTaskModal(false);
   };
+
 
   return (
     <div className="TaskmanagerShell">

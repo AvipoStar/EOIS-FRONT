@@ -17,10 +17,5 @@ export const getTasksTableSettings = (
         return priorities.map((p: any) => p.id == value && p.name);
       },
     },
-    // {
-    //   label: "Готово",
-    //   key: "id",
-
-    // },
   ];
 };

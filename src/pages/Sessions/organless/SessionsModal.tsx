@@ -7,9 +7,19 @@ import { MyInput } from "../../../ui/MyInput/organless/MyInput";
 import { setSession } from "../logic/setSession";
 import { MyMultyDatePiker } from "../../../ui/MyMultyDatePicker/organless/MyMultyDatePiker";
 
+const firmsCountArray = [
+  { id: 1, name: "1" },
+  { id: 2, name: "2" },
+  { id: 3, name: "3" },
+  { id: 4, name: "4" },
+  { id: 5, name: "5" },
+  { id: 6, name: "6" },
+  { id: 7, name: "7" },
+];
+
 interface ISessionsModal {
   editedSession: ISession | null;
-  setEditedSession: React.Dispatch<React.SetStateAction<ISession | null>>;
+  setEditedSession: React.Dispatch<React.SetStateAction<ISession>>;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   setReloadSession: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -61,18 +71,13 @@ export const SessionsModal = (params: ISessionsModal) => {
         <MySelect
           itemKey={"id"}
           isMulty={false}
-          options={[
-            { id: 1, name: "1" },
-            { id: 2, name: "2" },
-            { id: 3, name: "3" },
-            { id: 4, name: "4" },
-            { id: 5, name: "5" },
-            { id: 6, name: "6" },
-            { id: 7, name: "7" },
-          ]}
+          options={firmsCountArray}
           onChange={(e: any) => handleChange(e, "firmCount")}
           label={"name"}
           placeholder={"Количество фирм"}
+          defaultValues={firmsCountArray
+            .filter((fca: any) => fca.id == editedSession?.firmCount)
+            .map((fca: any) => ({ value: fca.id, label: fca.name }))}
         />
       </ContainerWithLabel>
     </MyModal>

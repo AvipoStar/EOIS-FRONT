@@ -99,7 +99,10 @@ export const LKPage = () => {
       {showAttachModal && <LKAttachModal setShowModal={setshowAttachModal} />}
       <Page>
         <div className="TopBlock">
-          <div className="MainUserInfoBlock">
+          <div
+            className="MainUserInfoBlock"
+            style={userInfo.roleId != 2 ? { width: "100%" } : {}}
+          >
             <div className="UserPhotoBlock">
               <img
                 src={`${baseURL}${userInfo.photoPath}`}

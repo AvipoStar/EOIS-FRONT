@@ -1,3 +1,4 @@
+import zIndex from "@mui/material/styles/zIndex";
 import { useEffect } from "react";
 import Select from "react-select";
 interface IMySelect {
@@ -39,17 +40,13 @@ export const MySelect = (params: IMySelect) => {
     menu: (provided: any, state: any) => ({
       ...provided,
       backgroundColor: state.isSelected ? "#D9D9D9" : "#e7e7e7",
+      zIndex: 5,
     }),
   };
-
-  useEffect(() => {
-    console.log('params.defaultValues', params.defaultValues)
-  }, [params.defaultValues]);
 
   return (
     <div style={{ width: params.width ?? "100%" }}>
       <Select
-        // classNamePrefix="Select"
         styles={customStyles}
         closeMenuOnSelect={!params.isMulty}
         defaultValue={params.defaultValues ?? []}

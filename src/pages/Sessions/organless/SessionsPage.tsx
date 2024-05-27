@@ -20,19 +20,25 @@ export interface ISession {
   firmCount: number;
 }
 
+const defaultSession: ISession = {
+  id: -1,
+  dateStart: "",
+  dateEnd: "",
+  place: "",
+  firmCount: 0,
+};
+
 export const SessionsPage = () => {
   const userInfo = useSelector((state: any) => state.userInfo);
 
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [sessions, setSessions] = useState<ISession[]>([]);
-  const [selectedSessions, setSelectedSessions] = useState<ISession | null>(
-    null
-  );
+  const [selectedSessions, setSelectedSessions] =
+    useState<ISession>(defaultSession);
   const [reloadProjectsSessions, setReloadSessions] = useState(false);
 
   const [searchString, setSearchString] = useState("");
   const debouncedValue = useDebounse(searchString);
-
 
   useEffect(() => {
     fetchSessions();
@@ -51,7 +57,7 @@ export const SessionsPage = () => {
   };
 
   useEffect(() => {
-    if (selectedSessions) setShowCreateModal(true);
+    if (selectedSessions != defaultSession) setShowCreateModal(true);
   }, [selectedSessions]);
 
   return (
@@ -77,7 +83,7 @@ export const SessionsPage = () => {
         </ContainerWithLabel>
       </FilterBlock>
       <InfoBlock title={"Сессии"}>
-      <PerfectTable
+        <PerfectTable
           nameTable={"Кураторы"}
           table={sessions}
           tableSettings={getTableSettings(sessions)}

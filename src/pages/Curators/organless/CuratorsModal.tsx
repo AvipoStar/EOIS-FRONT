@@ -93,7 +93,7 @@ export const CuratorsModal = (params: ICuratorsModal) => {
           placeholder="Профиль"
           defaultValues={profiles
             .filter((e: any) => e.id === params.editedCurator?.profile)
-            .map((e: any) => ({ value: e.id, label: e.name }))}
+            .map((e: any) => ({ value: e.id, label: e.nameProfile }))}
         />
       </ContainerWithLabel>
     </MyModal>

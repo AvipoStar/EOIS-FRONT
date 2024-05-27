@@ -14,3 +14,15 @@ export const convertDate = (date: string, includeTime = false) => {
     return `${day}.${month}.${year}`;
   }
 };
+
+/**
+ * Конвертирует дату в формат "гггг.мм.дд" .
+ * @param {string} date - Строка с датой в формате "гггг-мм-ддTчч:мм:сс".
+ * @returns {string} - Строка с конвертированной датой в формате "дд.мм.гггг" или "дд.мм.гггг чч:мм:сс" в зависимости от значения флага includeTime.
+ */
+export const convertDate4BD = (date: string) => {
+  const [datePart, timePart] = date.split("T");
+  const [year, month, day] = datePart.split("-");
+
+  return `${year}-${month}-${day}`;
+};
