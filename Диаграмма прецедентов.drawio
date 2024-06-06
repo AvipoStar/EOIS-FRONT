@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-06T05:32:19.635Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 YaBrowser/24.4.0.0 Safari/537.36" etag="kflL8Wr-tqthl43xOmlN" version="24.4.14" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-06T05:32:31.007Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 YaBrowser/24.4.0.0 Safari/537.36" etag="rvVRATkJiy6j2zUkdFfr" version="24.4.14" type="github">
   <diagram name="Страница — 1" id="JHyc7OgReh5onTn7h_LJ">
     <mxGraphModel dx="1613" dy="1153" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -478,7 +478,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="MobT2F_rrTT9ICf2XlTD-40" value="Создание проекта" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="2592" y="1063" width="164" height="70" as="geometry" />
+          <mxGeometry x="2589" y="1047" width="164" height="70" as="geometry" />
         </mxCell>
         <mxCell id="MobT2F_rrTT9ICf2XlTD-78" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="MobT2F_rrTT9ICf2XlTD-43" target="MobT2F_rrTT9ICf2XlTD-40">
           <mxGeometry relative="1" as="geometry" />
@@ -489,7 +489,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="MobT2F_rrTT9ICf2XlTD-43" value="Редактирование проекта" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="2815" y="1058" width="155" height="70" as="geometry" />
+          <mxGeometry x="2815" y="1042" width="155" height="70" as="geometry" />
         </mxCell>
         <mxCell id="MobT2F_rrTT9ICf2XlTD-44" value="Создание куратора" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="2332" y="1058" width="140" height="70" as="geometry" />
