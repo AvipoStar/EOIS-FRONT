@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-06-06T04:25:45.622Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 YaBrowser/24.4.0.0 Safari/537.36" etag="9HST73SPxNgsDXxv1PES" version="24.4.14" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-06T04:27:53.244Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 YaBrowser/24.4.0.0 Safari/537.36" etag="BI55qOrLlLZlTqm_rzLr" version="24.4.14" type="github">
   <diagram name="Страница — 1" id="JHyc7OgReh5onTn7h_LJ">
-    <mxGraphModel dx="2055" dy="1427" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2220" dy="1530" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -18,16 +18,17 @@
         <mxCell id="dc6LDPQuT327r_oDvSLp-9" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;fontFamily=Liberation Serif;fontSize=14;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="fLU7Y0jLPDf_8JjJzR_N-1" target="fLU7Y0jLPDf_8JjJzR_N-6" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="121" y="-119" />
+              <mxPoint x="81" y="-119" />
               <mxPoint x="343" y="-119" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="dc6LDPQuT327r_oDvSLp-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Liberation Serif;fontSize=14;" parent="1" source="fLU7Y0jLPDf_8JjJzR_N-1" target="fLU7Y0jLPDf_8JjJzR_N-7" edge="1">
+        <mxCell id="dc6LDPQuT327r_oDvSLp-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Liberation Serif;fontSize=14;" parent="1" target="fLU7Y0jLPDf_8JjJzR_N-7" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="121" y="58" />
             </Array>
+            <mxPoint x="96" y="-17" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Liberation Serif;fontSize=14;" parent="1" source="fLU7Y0jLPDf_8JjJzR_N-1" target="fLU7Y0jLPDf_8JjJzR_N-11" edge="1">
@@ -51,8 +52,8 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-1" value="Участник&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontFamily=Liberation Serif;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="106" y="-47" width="30" height="60" as="geometry" />
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-1" value="Участник&lt;div style=&quot;font-size: 18px;&quot;&gt;&lt;br style=&quot;font-size: 18px;&quot;&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="66" y="-47" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-5" value="Авторизация&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="443" y="-153" width="140" height="70" as="geometry" />
@@ -71,7 +72,7 @@
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-24" value="extend" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=2;fontFamily=Liberation Serif;fontSize=18;" parent="dc6LDPQuT327r_oDvSLp-20" vertex="1" connectable="0">
           <mxGeometry x="-0.1332" y="-1" relative="1" as="geometry">
-            <mxPoint x="-3" y="-21" as="offset" />
+            <mxPoint x="26" y="-29" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-9" value="Редактирование проекта" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
@@ -94,12 +95,13 @@
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-12" value="Создание куратора" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="494" y="406" width="140" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="dc6LDPQuT327r_oDvSLp-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;exitX=0.75;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Liberation Serif;fontSize=14;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="fLU7Y0jLPDf_8JjJzR_N-14" target="fLU7Y0jLPDf_8JjJzR_N-5" edge="1">
+        <mxCell id="dc6LDPQuT327r_oDvSLp-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;fontFamily=Liberation Serif;fontSize=14;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="fLU7Y0jLPDf_8JjJzR_N-5" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="388" y="-53" />
-              <mxPoint x="513" y="-53" />
+              <mxPoint x="388" y="-33" />
+              <mxPoint x="513" y="-33" />
             </Array>
+            <mxPoint x="387" y="-33" as="sourcePoint" />
             <mxPoint x="513" y="-90" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -148,7 +150,7 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-14" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;Куратор&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontFamily=Liberation Serif;fontSize=14;" parent="1" vertex="1">
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-14" value="&lt;div style=&quot;font-size: 18px;&quot;&gt;Куратор&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="365" y="-63" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Liberation Serif;fontSize=14;" parent="1" source="fLU7Y0jLPDf_8JjJzR_N-15" target="fLU7Y0jLPDf_8JjJzR_N-5" edge="1">
@@ -221,7 +223,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-15" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;Админ&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontFamily=Liberation Serif;fontSize=14;" parent="1" vertex="1">
+        <mxCell id="fLU7Y0jLPDf_8JjJzR_N-15" value="&lt;div style=&quot;font-size: 18px;&quot;&gt;Админ&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="482" y="614" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-16" value="Просмотр списка смен" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
@@ -235,7 +237,7 @@
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-25" value="&lt;span style=&quot;font-style: italic; font-size: 18px;&quot;&gt;extend&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Liberation Serif;fontSize=18;" parent="dc6LDPQuT327r_oDvSLp-21" vertex="1" connectable="0">
           <mxGeometry x="0.1709" y="-1" relative="1" as="geometry">
-            <mxPoint x="8" y="-6" as="offset" />
+            <mxPoint x="7" y="-13" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-18" value="Редактирование смен" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
@@ -252,7 +254,7 @@
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-27" value="&lt;span style=&quot;font-style: italic; font-size: 18px;&quot;&gt;extend&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Liberation Serif;fontSize=18;" parent="dc6LDPQuT327r_oDvSLp-23" vertex="1" connectable="0">
           <mxGeometry x="-0.0934" y="-1" relative="1" as="geometry">
-            <mxPoint x="15" y="-1" as="offset" />
+            <mxPoint x="13" y="-13" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-21" value="Редактирование задач" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
@@ -265,13 +267,13 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="558" y="-265" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="121" y="-119" />
-              <mxPoint x="420" y="-119" />
+              <mxPoint x="81" y="-119" />
+              <mxPoint x="443" y="-119" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-2" value="Регистрация" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="-57.5" y="-140" width="140" height="70" as="geometry" />
+          <mxGeometry x="-91.5" y="-140" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-6" value="Просмотр списка досок" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="141" y="197" width="156" height="70" as="geometry" />
@@ -280,7 +282,7 @@
           <mxGeometry x="623" y="-3" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-22" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 18px; font-style: italic; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;extend&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Liberation Serif;fontSize=18;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="dc6LDPQuT327r_oDvSLp-8" target="dc6LDPQuT327r_oDvSLp-7" edge="1">
-          <mxGeometry x="0.0071" relative="1" as="geometry">
+          <mxGeometry x="-0.1377" y="-14" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
@@ -288,7 +290,7 @@
           <mxGeometry x="780" y="61" width="153" height="70" as="geometry" />
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-51" value="Просмотр своих штрафов и поощрений" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="-71" y="31" width="167" height="100" as="geometry" />
+          <mxGeometry x="-105" y="31" width="167" height="100" as="geometry" />
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-52" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;fontFamily=Liberation Serif;fontSize=14;" parent="1" source="fLU7Y0jLPDf_8JjJzR_N-1" target="dc6LDPQuT327r_oDvSLp-51" edge="1">
           <mxGeometry relative="1" as="geometry" />
