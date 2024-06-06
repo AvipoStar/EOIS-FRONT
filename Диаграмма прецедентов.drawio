@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-06T04:10:18.267Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 YaBrowser/24.4.0.0 Safari/537.36" etag="FEAu2ruufzh7qir4_jvC" version="24.4.14" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-06T04:10:41.368Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 YaBrowser/24.4.0.0 Safari/537.36" etag="HvtxLKd1Z22r0ewTvaF2" version="24.4.14" type="github">
   <diagram name="Страница — 1" id="JHyc7OgReh5onTn7h_LJ">
     <mxGraphModel dx="1700" dy="1207" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -94,10 +94,11 @@
         <mxCell id="fLU7Y0jLPDf_8JjJzR_N-12" value="Создание куратора" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="530" y="409" width="140" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="dc6LDPQuT327r_oDvSLp-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Liberation Serif;fontSize=14;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="fLU7Y0jLPDf_8JjJzR_N-14" target="fLU7Y0jLPDf_8JjJzR_N-5" edge="1">
+        <mxCell id="dc6LDPQuT327r_oDvSLp-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;exitX=0.75;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Liberation Serif;fontSize=14;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="fLU7Y0jLPDf_8JjJzR_N-14" target="fLU7Y0jLPDf_8JjJzR_N-5" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="513" y="-63" />
+              <mxPoint x="388" y="-53" />
+              <mxPoint x="513" y="-53" />
             </Array>
             <mxPoint x="513" y="-90" as="targetPoint" />
           </mxGeometry>
@@ -286,7 +287,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-2" value="Регистрация" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
-          <mxGeometry x="-66" y="-140" width="140" height="70" as="geometry" />
+          <mxGeometry x="-57.5" y="-140" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="dc6LDPQuT327r_oDvSLp-6" value="Просмотр списка досок" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Liberation Serif;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="144" y="307" width="156" height="70" as="geometry" />
